@@ -11,6 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <ul>
+        <li>
+          <%= link_to "About", about_path %>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
