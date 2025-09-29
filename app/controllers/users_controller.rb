@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def mypage
-    @mypage = User.show
+    @mypage = User.find(current_user.id)
     
   end
 

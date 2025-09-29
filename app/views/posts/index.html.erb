@@ -1,1 +1,9 @@
 <h1>投稿一覧</h1>
+
+<% @posts.each do |post| %>
+  <%= image_tag post.get_image(500,500) %>
+  <%= post.shirine_name %>
+  <%= post.body %>
+  <%= image_tag 'no_image.jpg' %>
+  <%= post.user.name %>
+<% end %>
