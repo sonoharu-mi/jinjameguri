@@ -8,7 +8,8 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.float :latitude
       t.float :longitude
       t.integer :parking
-      t.integer :goshuin
+      t.integer :shirine_stamp
+      t.integer :seasonal_stamp
       t.timestamps
     end
   end

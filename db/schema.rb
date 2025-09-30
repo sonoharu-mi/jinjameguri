@@ -48,7 +48,8 @@ ActiveRecord::Schema.define(version: 2025_09_29_105656) do
     t.float "latitude"
     t.float "longitude"
     t.integer "parking"
-    t.integer "goshuin"
+    t.integer "shirine_stamp"
+    t.integer "seasonal_stamp"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

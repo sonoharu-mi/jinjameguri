@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     @post.save
     @posts = Post.all
-    redirect_to posts_path
+    redirect_to :index
   end
 
   def index
