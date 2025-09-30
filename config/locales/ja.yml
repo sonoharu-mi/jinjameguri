@@ -2,4 +2,23 @@ ja:
   enums:
     post:
       parking:
-        
+        unavailable: "駐車場なし"
+        available: "駐車場あり"
+      shirine_stamp:
+        no_stamp: "御朱印無し"
+        has_stamp: "御朱印有り"
+      seasonal_stamp:
+        regular: "通常"
+        january: "1月"
+        february: "2月"
+        march: "3月"
+        april: "4月"
+        may: "5月"
+        june: "6月"
+        july: "7月"
+        august: "8月"
+        september: "9月"
+        october: "10月"
+        november: "11月"
+        december: "12月"
+        nostamp: "無し"
