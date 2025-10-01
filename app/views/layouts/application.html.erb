@@ -18,20 +18,20 @@
             <%= link_to "ご案内", about_path %>
           </li>
           <li>
-            <%= link_to "投稿する", new_post_path %>
+            <%= link_to "新しい記を綴る", new_post_path %>
           </li>
           <li>
             <%= link_to "私の参拝帖", mypage_path %>
           </li>
           <li>
-           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+           <%= link_to "門を出る", destroy_user_session_path, method: :delete %>
           </li>
         <% else %>
           <li>
-            <%= link_to "ユーザー登録", new_user_registration_path %>
+            <%= link_to "はじめる", new_user_registration_path %>
           </li>
           <li>
-            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "門をくぐる", new_user_session_path %>
           </li>
         <% end %>
       </ul>

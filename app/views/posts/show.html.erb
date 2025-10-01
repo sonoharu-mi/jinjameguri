@@ -1,2 +1,10 @@
 <h1>参拝記</h1>
 
+<%= link_to @post.user.name, user_path(@user.id) %>
+<%= @post.shirine_name %>
+<%= @post.body %>
+<%= image_tag 'no_image.jpg' %>
+<%= @post.parking %>
+<%= @post.shirine_stamp %>
+<%= @post.seasonal_stamp %>
+<%= image_tag @post.get_image(500,500) %>

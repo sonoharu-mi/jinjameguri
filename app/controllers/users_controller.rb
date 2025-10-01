@@ -5,10 +5,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = 
+    @posts = @user.posts_path
   end
 
   def edit
+    @user = User.find(current_user.id)
   end
 
   private

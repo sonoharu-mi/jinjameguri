@@ -2,9 +2,24 @@
 
 <% @posts.each do |post| %>
   <%= image_tag post.get_image(500,500) %>
-  <%= post.shirine_name %>
-  <%= post.body %>
-  <%= image_tag 'no_image.jpg' %>
-  <%= post.user.name %>
+  <table>
+    <tr>
+      <th>
+        <%= post.shirine_name %>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <%= post.body %>
+      </th>
+    </tr>
+      <th>
+        <%= image_tag 'no_image.jpg' %>
+      </th>
+      <th>
+        <%= post.user.name %>
+      </th>
+    </tr>
+  </table>
 <% end %>
 
