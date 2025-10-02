@@ -21,7 +21,7 @@
   <%= f.radio_button :shirine_stamp, Post.shirine_stamps.key(1) %>
   <%= label :shirine_stamp, Post.shirine_stamps_i18n[:has_stamp] %></br>
   <h4>季節限定の御朱印</h4>
-  <%= f.select :seasonal_stamp, options_for_select(Post.seasonal_stamps.keys) %>
+  <%= f.select :seasonal_stamp, options_for_select(Post.seasonal_stamps_i18n.invert) %>
   
   <%= f.submit '投稿' %>
 <% end %>

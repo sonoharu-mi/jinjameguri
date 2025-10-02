@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def mypage
     @mypage = User.find(current_user.id)
     @post_new = Post.new
-    @post = Post.find(current_user.id)
+    @posts = @user.posts
   end
 
   def show

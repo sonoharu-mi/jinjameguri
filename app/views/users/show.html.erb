@@ -1,9 +1,9 @@
 <div>
   <h1> <%= @user.name %> さんの参拝記</h1>
-  <%= image_tag user.get_profile_image(100,100) %>
+  <%= image_tag @user.get_profile_image(100,100) %>
 </div>
 
 
-<%= render 'posts/list', posts: @posts %>
+<%= render @posts %>
 
 <%= link_to "一覧に戻る", posts_path %>

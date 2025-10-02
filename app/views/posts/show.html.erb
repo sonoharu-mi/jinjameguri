@@ -3,8 +3,8 @@
 <%= link_to @post.user.name, user_path(@user.id) %>
 <%= @post.shirine_name %>
 <%= @post.body %>
-<%= image_tag 'no_image.jpg' %>
-<%= @post.parking %>
-<%= @post.shirine_stamp %>
-<%= @post.seasonal_stamp %>
+<%= image_tag @user.get_profile_image(100,100) %>
+<%= @post.parking_i18n %>
+<%= @post.shirine_stamp_i18n %>
+<%= @post.seasonal_stamp_i18n %>
 <%= image_tag @post.get_image(500,500) %>

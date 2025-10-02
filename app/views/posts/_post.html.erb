@@ -10,15 +10,15 @@
   <tbody>
     <tr>
       <td>
-        <%= link_to post_path(@post) do %>
-          <%= image_tag @post.get_image(200,200) %>
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.get_image(200,200) %>
         <% end %>
       </td>
       <td>
-        <%= @post.shirine_name %>
+        <%= post.shirine_name %>
       </td>
       <td>
-        <%= @post.body %>
+        <%= post.body %>
       </td>
     </tr>
   </tbody>
