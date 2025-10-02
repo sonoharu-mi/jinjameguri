@@ -1,10 +1,9 @@
-<h1> さんの参拝記</h1>
+<div>
+  <h1> <%= @user.name %> さんの参拝記</h1>
+  <%= image_tag user.get_profile_image(100,100) %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-    <th></th>
-    <th>神社名</th>
-    </tr>
-  </thead>
-</table>
+
+<%= render 'posts/list', posts: @posts %>
+
+<%= link_to "一覧に戻る", posts_path %>
