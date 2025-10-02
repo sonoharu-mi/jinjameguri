@@ -1,5 +1,29 @@
 <h1>神社の投稿をしよう！</h1>
 
-<%= render 'list', post: @post %>
+<%= form_with model: @post do |f| %>
+  <h4>写真</h4>
+  <%= f.file_field :image, accept: "image/*" %>
+  <h4>神社の名前</h4>
+  <%= f.text_field :shirine_name %>
+  <h4>住所</h4>
+  <%= f.text_area :address %>
+  <h4>本文</h4>
+  <%= f.text_area :body %></br>
+
+  <h4>駐車場の有無</h4>
+  <%= f.radio_button :parking, Post.parkings.key(0) %>
+  <%= label :parking, Post.parkings_i18n[:unavailable] %>
+  <%= f.radio_button :parking, Post.parkings.key(1) %>
+  <%= label :parking, Post.parkings_i18n[:available] %></br>
+  <h4>御朱印の有無</h4>
+  <%= f.radio_button :shirine_stamp, Post.shirine_stamps.key(0) %>
+  <%= label :shirine_stamp, Post.shirine_stamps_i18n[:no_stamp] %>
+  <%= f.radio_button :shirine_stamp, Post.shirine_stamps.key(1) %>
+  <%= label :shirine_stamp, Post.shirine_stamps_i18n[:has_stamp] %></br>
+  <h4>季節限定の御朱印</h4>
+  <%= f.select :seasonal_stamp, options_for_select(Post.seasonal_stamps.keys) %>
+  
+  <%= f.submit '投稿' %>
+<% end %>
 
 <%= link_to "戻る", posts_path %> 

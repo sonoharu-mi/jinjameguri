@@ -1,4 +1,36 @@
 <h1>私の参拝帖</h1>
 
 <%= @mypage.name %>
+<br>
+<%= link_to "新しい記を綴る", new_post_path(@post_new) %>
 
+<h3>参拝記録</h3>
+
+<%= render 'posts/list', post: @post %>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>神社名</th>
+      <th>記録</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to post_path(@post) do %>
+          <%= image_tag @post.get_image(200,200) %>
+        <% end %>
+      </td>
+      <td>
+        <%= @post.shirine_name %>
+      </td>
+      <td>
+        <%= @post.body %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "一覧へ戻る", posts_path %>

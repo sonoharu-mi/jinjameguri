@@ -14,7 +14,9 @@
       </th>
     </tr>
       <th>
-        <%= image_tag 'no_image.jpg' %>
+        <%= link_to user_path(@users) do %>
+          <%= image_tag 'no_image.jpg' %>
+        <% end %>
       </th>
       <th>
         <%= post.user.name %>
