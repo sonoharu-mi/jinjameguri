@@ -1,7 +1,9 @@
 <h1>投稿一覧</h1>
 
 <% @posts.each do |post| %>
-  <%= image_tag post.get_image(500,500) %>
+  <%= link_to post_path(post) do %>
+    <%= image_tag post.get_image(500,500) %>
+  <% end %>
   <table>
     <tr>
       <th>
@@ -13,13 +15,19 @@
         <%= post.body %>
       </th>
     </tr>
+    <tr>
+      <th>
+        <%= post.parking_i18n %>
+      </th>
+    </tr>
+    <tr>
       <th>
         <%= link_to user_path(post.user_id) do %>
-          <%= image_tag 'no_image.jpg' %>
+          <%= image_tag post.user.get_profile_image(100,100) %>
         <% end %>
       </th>
       <th>
-        <%= post.user.name %>
+        <%= link_to post.user.name %>
       </th>
     </tr>
   </table>
