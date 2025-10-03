@@ -3,9 +3,11 @@
 
 <%= @mypage.name %>
 <br>
+<%= link_to "プロフィールを編集する", edit_user_path(@user) %><br>
 <%= link_to "新しい記を綴る", new_post_path(@post_new) %>
 
 <h3>参拝記録</h3>
+
 
 <%= render @posts %>
 

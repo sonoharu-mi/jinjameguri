@@ -22,3 +22,6 @@ ja:
         november: "11月"
         december: "12月"
         nostamp: "無し"
+  errors:
+    messages:
+      not_saved: "エラーが発生したため、保存されませんでした。"
