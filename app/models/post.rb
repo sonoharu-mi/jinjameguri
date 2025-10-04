@@ -15,4 +15,8 @@ class Post < ApplicationRecord
   enum shirine_stamp: { no_stamp: 0, has_stamp: 1}
   enum seasonal_stamp: {regular: 0, january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12, nostamp: 13}
 
+  validates :shirine_name, presence: true
+  validates :address, presence: true
+  validates :body, presence: true
+  validates 
 end

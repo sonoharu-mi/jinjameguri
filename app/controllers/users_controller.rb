@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def update
+    
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
