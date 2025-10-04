@@ -18,10 +18,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "プロフィールの編集に成功しました。"
-      redirect_to user_path(@user.id)
+      redirect_to mypage_path
     else
       flash[:alert] = "プロフィールの編集に失敗しました"
-      redirect_to :edit
+      render :edit
     end
   end
 
