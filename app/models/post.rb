@@ -17,6 +17,8 @@ class Post < ApplicationRecord
 
   validates :shirine_name, presence: true
   validates :address, presence: true
-  validates :body, presence: true
-  validates 
+  validates :body, presence: true, length: {maximum: 200}
+  validates :parking, inclusion: {in: ['駐車場無し','駐車場有り']}
+  validates :shirine_stamp, inclusion: {in: ['御朱印無し','御朱印有り']}
+  validates :seasonal_stamp, inclusion: {in:['通常','1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月','無し']}
 end

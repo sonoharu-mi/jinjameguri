@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
       flash[:alert] = "投稿に失敗しました"
-      redirect_to :index
+      redirect_to posts_path
     end
   end
 
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update
+    if @post.update(post_params)
       flash[:notice] = "編集に成功しました。"
       redirect_to post_path(@post.id)
     else

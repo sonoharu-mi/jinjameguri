@@ -2,8 +2,8 @@ ja:
   enums:
     post:
       parking:
-        unavailable: "駐車場なし"
-        available: "駐車場あり"
+        unavailable: "駐車場無し"
+        available: "駐車場有り"
       shirine_stamp:
         no_stamp: "御朱印無し"
         has_stamp: "御朱印有り"

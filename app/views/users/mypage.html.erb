@@ -1,18 +1,19 @@
 <h1>私の参拝帖</h1>
 
+<% if @mypage == current_user %>
+  <%= @mypage.name %>
+  <%= link_to edit_user_path(@mypage) do %>
+    <%= image_tag @mypage.get_profile_image(100,100) %>
+  <% end %>
+  <br>
+  <%= link_to "プロフィールを編集する", edit_user_path(@mypage) %><br>
+  <%= link_to "新しい記を綴る", new_post_path(@post_new) %>
 
-<%= @mypage.name %>
-<%= link_to edit_user_path(@user) do %>
-  <%= image_tag @user.get_profile_image(100,100) %>
+  <h3>参拝記録</h3>
+
+
+  <%= render @posts %>
+
+
+  <%= link_to "一覧へ戻る", posts_path %>
 <% end %>
-<br>
-<%= link_to "プロフィールを編集する", edit_user_path(@user) %><br>
-<%= link_to "新しい記を綴る", new_post_path(@post_new) %>
-
-<h3>参拝記録</h3>
-
-
-<%= render @posts %>
-
-
-<%= link_to "一覧へ戻る", posts_path %>
