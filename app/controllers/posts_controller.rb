@@ -36,7 +36,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post.id)
     else
       flash[:alert] = "編集に失敗しました"
-      render :index
+      render :edit
     end
   end
 
