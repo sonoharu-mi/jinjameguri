@@ -11,6 +11,9 @@
       <th>
         <%= link_to @post.user.name, user_path(@user.id) %>
       </th>
+      <% if @post.user == current_user %>
+        <th><%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
+      <% end %>
     </tr>
     <tr>
       <th>
@@ -47,4 +50,6 @@
 <%= image_tag @post.get_image(500,500) %><br>
 
 <%= link_to "一覧へ戻る", posts_path %> | 
-<%= link_to "参拝記録を編集", edit_post_path %>
+<% if @post.user == current_user %>
+  <%= link_to "参拝記録を編集", edit_post_path %>
+<% end %>

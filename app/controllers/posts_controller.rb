@@ -41,11 +41,22 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to posts_path
   end
 
   private
 
   def post_params
     params.require(:post).permit( :shirine_name, :body, :address, :parking, :shirine_stamp, :seasonal_stamp, :image)
+  end
+
+  def is_matcing_login_user
+    @post = Post.find(params[:id])
+    @user = @post.user
+    unless @user.id == current_user.id
+      redirect_to posts_path
+    end
   end
 end

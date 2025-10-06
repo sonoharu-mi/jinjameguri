@@ -6,6 +6,8 @@
     <%= image_tag @mypage.get_profile_image(100,100) %>
   <% end %>
   <br>
+  <%= @mypage.introduction %>
+  <br>
   <%= link_to "プロフィールを編集する", edit_user_path(@mypage) %><br>
   <%= link_to "新しい記を綴る", new_post_path(@post_new) %>
 
