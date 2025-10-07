@@ -1,55 +1,53 @@
-<h1>参拝記</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>
-        <%= link_to user_path(@user) do %>
-          <%= image_tag @user.get_profile_image(100,100) %>
+<div class="row">
+  <h1>参拝記</h1>
+  <div class="text-center">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>
+          <%= link_to user_path(@user) do %>
+            <%= image_tag @user.get_profile_image(100,100) %>
+          <% end %>
+        </th>
+        <th>
+          <%= link_to @post.user.name, user_path(@user.id) %>
+        </th>
+      </tr>
+      <tr>
+        <th>神社の名前：<%= @post.shirine_name %></th>
+      </tr>
+      <tr>
+        <th>駐車場の有無：<%= @post.parking_i18n %></th>
+      </tr>
+      <tr>
+        <th>御朱印の有無：<%= @post.shirine_stamp_i18n %></th>
+      </tr>
+      <tr>
+        <th>季節限定の御朱印： <%= @post.seasonal_stamp_i18n %></th>
+      </tr>
+      <tr>
+        <th>
+          <span class="text-wrap"><%= @post.body %></span>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <p>参拝日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+        </th>
+      </tr>
+      <tr>
+        <th><%= image_tag @post.get_image(500,500) %></th>
+        <% if @post.user == current_user %>
+          <th><%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger" %></th>
         <% end %>
-      </th>
-      <th>
-        <%= link_to @post.user.name, user_path(@user.id) %>
-      </th>
-      <% if @post.user == current_user %>
-        <th><%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
-      <% end %>
-    </tr>
-    <tr>
-      <th>
-      <%= @post.shirine_name %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        <%= @post.body %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        <%= @post.parking_i18n %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        <%= @post.shirine_stamp_i18n %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        <%= @post.seasonal_stamp_i18n %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        <p>参拝日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-      </th>
-    </tr>
-  </thead>
-</table>
-<%= image_tag @post.get_image(500,500) %><br>
-
-<%= link_to "一覧へ戻る", posts_path %> | 
-<% if @post.user == current_user %>
-  <%= link_to "参拝記録を編集", edit_post_path %>
-<% end %>
+      </tr>
+    </thead>
+  </table>
+  <div class="col mt-5">
+    <p>＜<%= link_to "一覧へ戻る", posts_path %> | 
+    <% if @post.user == current_user %>
+      <%= link_to "参拝記録を編集", edit_post_path %>
+    <% end %></p>
+  </div>
+  </div>
+</div>
