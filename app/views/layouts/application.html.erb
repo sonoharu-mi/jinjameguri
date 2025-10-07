@@ -39,7 +39,12 @@
       </ul>
     </header>
     <main>
-      <%= yield %>
+      <div class="container">
+        <% flash.each do |message_type, message| %>
+          <div class="flash_message <%= message_type %>"><%= message %></div>
+        <% end %>
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>

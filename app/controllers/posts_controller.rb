@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   def is_matcing_login_user
     @post = Post.find(params[:id])
     @user = @post.user
-    unless @user.id == current_user.id
+    unless @post.user.id == current_user.id
       redirect_to posts_path
     end
   end

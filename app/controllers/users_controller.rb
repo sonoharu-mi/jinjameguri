@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :is_matcing_login_user, only: [:edit, :update]
+  
   def mypage
     @mypage = User.find(current_user.id)
     @posts = @mypage.posts
