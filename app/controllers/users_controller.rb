@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
-  before_action :is_matcing_login_user, only: [:edit, :update]
   
   def mypage
     @mypage = User.find(current_user.id)
     @posts = @mypage.posts
-    
   end
 
   def show
@@ -22,7 +20,7 @@ class UsersController < ApplicationController
       flash[:notice] = "プロフィールの編集に成功しました。"
       redirect_to mypage_path
     else
-      flash[:alert] = "プロフィールの編集に失敗しました"
+      flash[:error] = "プロフィールの編集に失敗しました"
       render :edit
     end
   end
