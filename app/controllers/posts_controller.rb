@@ -1,15 +1,16 @@
 class PostsController < ApplicationController
+  
   def new
     @post = Post.new
   end
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
     if @post.save
       flash[:notice] = "投稿に成功しました。"
       redirect_to post_path(@post.id)
     else
+      @user = current_user.id
       flash[:error] = "投稿に失敗しました"
       render :new
     end
@@ -47,7 +48,6 @@ class PostsController < ApplicationController
   end
 
   private
-
   def post_params
     params.require(:post).permit( :shirine_name, :body, :address, :parking, :shirine_stamp, :seasonal_stamp, :image)
   end
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   def is_matcing_login_user
     @post = Post.find(params[:id])
     @user = @post.user
-    unless @post.user.id == current_user.id
+    unless @user.id == current_user.id
       redirect_to posts_path
     end
   end
