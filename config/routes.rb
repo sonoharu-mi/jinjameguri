@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/homes/about" => "homes#about", as: "about"
   get '/mypage' => "users#mypage", as: "mypage"
   resources :posts do
-    resources :post_comments, only: [:create]
+    resources :post_comments, only: [:create, :destroy]
   end
   resources :users, only: [:mypage, :show, :edit, :update, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

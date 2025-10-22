@@ -43,11 +43,15 @@
       </tr>
       <tr>
         <th>
-          <p><%= @post.post_comments.count %>件のコメント</p>
+          <p><%= @post.post_comments.count %> 件のコメント</p>
           <% @post.post_comments.each do |post_comment| %>
-            <p><%= post_comment.user.name %></p>
-            <p><%= post_comment.comment %></p>
-            <p><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
+            <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+            <%= post_comment.user.name %>
+            <%= post_comment.comment %>
+            <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+            <% if post_comment.user == current_user %>
+              <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+            <% end %>
           <% end %>
           <div>
             <%= form_with model: [@post, @post_comment] do |f| %>
