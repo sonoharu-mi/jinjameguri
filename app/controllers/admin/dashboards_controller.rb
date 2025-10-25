@@ -4,5 +4,6 @@ class Admin::DashboardsController < ApplicationController
   
   def index
     @users = User.all
+    @posts = Post.all
   end
 end
