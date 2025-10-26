@@ -5,5 +5,6 @@ class Admin::DashboardsController < ApplicationController
   def index
     @users = User.all
     @posts = Post.all
+    @post_comments = PostComments.all
   end
 end

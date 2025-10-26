@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'dashboards', to: 'dashboards#index'
     resources :users, only: [:destroy]
-    resources :posts, only: [:destroy] do
-      resources :post_comments, only: [:destroy]
-    end
+    resources :posts, only: [:destroy]
+    resources :post_comments, only: [:destroy]
   end
 
   root to: "homes#top"
