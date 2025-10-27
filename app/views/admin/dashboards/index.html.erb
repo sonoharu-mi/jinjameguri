@@ -24,7 +24,7 @@
       <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
       <%= post_comment.user.name %>
       <%= post_comment.comment %>
-      <%= link_to '削除',admin_post_comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか？'} %>
+      <%= link_to '削除',admin_post_comment_path(post_comment), method: :delete, data: { confirm: '本当に削除しますか？'} %>
     </li>
   <% end %>
 </ul>
