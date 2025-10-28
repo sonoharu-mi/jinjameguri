@@ -1,0 +1,4 @@
+<%if @model == 'post' %>
+  <h3>検索欄 "<%= @content %>"</h3>
+  <%= render 'Posts/index', posts: @records %>
+<% end %>
