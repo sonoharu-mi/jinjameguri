@@ -1,10 +1,8 @@
 class SearchesController < ApplicationController
   def search
-    @model = params[:model]
-    @content = params[:shirine_name]
+    @content = params[:content]
     @method = params[:method]
 
-    @model == "post"
     @records = Post.search_for(@content, @method)
   end
 end
