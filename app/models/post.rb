@@ -19,6 +19,18 @@ class Post < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def self.search_for(content, method)
+    if method == "perfect"
+      Post.where(shirine_name: content)
+    elsif method == 'forward'
+      Post.where('shirine_name LIKE ?', content+'%')
+    elsif method == 'backward'
+      Post.where('shirine_name LIKE ?', '%'+content)
+    else
+      Post.where('shirine_name LIKE ?', '%'+content+'%')
+    end
+  end
+
   enum parking: { unavailable: 0, available: 1}
   enum shirine_stamp: { no_stamp: 0, has_stamp: 1}
   enum seasonal_stamp: {regular: 0, january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12, nostamp: 13}

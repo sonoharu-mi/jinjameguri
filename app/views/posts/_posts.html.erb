@@ -1,0 +1,37 @@
+<% posts.each do |post| %>
+  <%= link_to post_path(post) do %>
+    <%= image_tag post.get_image(300,300) %>
+  <% end %>
+  <table class="table table-hover">
+    <tr>
+      <th>
+        <%= post.shirine_name %>
+      </th>
+      <th><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></th>
+    </tr>
+    <tr>
+      <th>
+        <%= post.body %>
+      </th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>
+        <%= post.parking_i18n %>
+      </th>
+      <th>
+        <%= post.shirine_stamp_i18n %>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <%= link_to user_path(post.user_id) do %>
+          <%= image_tag post.user.get_profile_image(100,100) %>
+        <% end %>
+      </th>
+      <th>
+        <%= post.user.name %>
+      </th>
+    </tr>
+  </table>
+<% end %>

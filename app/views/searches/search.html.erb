@@ -1,0 +1,9 @@
+<% if @records.any? %>
+  <h2 class="pt-3">検索結果：<%= @content %></h2>
+  <br>
+  <%= render "posts/posts", posts: @records %>
+<% else %>
+  <p>該当する投稿はありませんでした。</p>
+<% end %>
+
+<%= link_to "戻る", "/posts" %>
