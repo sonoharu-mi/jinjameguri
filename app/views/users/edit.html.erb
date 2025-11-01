@@ -10,4 +10,8 @@
   <%= f.submit "編集を保存" %>
 <% end %>
 
+<% if @user == current_user %>
+  <%= link_to "退会", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+<% end %>
+
 <%= link_to "戻る", mypage_path %>
