@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/homes/about" => "homes#about", as: "about"
   get '/mypage' => "users#mypage", as: "mypage"
   resources :posts do
-    resource :like, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
   resources :users, only: [:mypage, :show, :edit, :update, :destroy, :destroy]
