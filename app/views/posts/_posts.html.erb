@@ -8,6 +8,7 @@
         <%= post.shirine_name %>
       </th>
       <th><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></th>
+      <th><%= render "likes/like", post: post %></th>
     </tr>
     <tr>
       <th>
