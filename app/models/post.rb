@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   has_many :post_comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :shirine_name, presence: true
   validates :address, presence: true
@@ -29,6 +30,10 @@ class Post < ApplicationRecord
     else
       Post.where('shirine_name LIKE ?', '%'+content+'%')
     end
+  end
+
+  def favorited_by?(user)
+    likes.exists?(user_id: user.id)
   end
 
   enum parking: { unavailable: 0, available: 1}
