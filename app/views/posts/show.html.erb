@@ -15,7 +15,16 @@
         </th>
       </tr>
       <tr>
-        <th>神社の名前：<%= @post.shirine_name %></th>
+        <th>
+          <p>神社の名前：<%= @post.shirine_name %></p>
+          <% if @post.tags.any? %>
+            <p>タグ：
+              <% @post.tags.each do |tag| %>
+                <%= link_to tag.name, tag_path(tag), class: "badge bg-secondary" %>
+              <% end %>
+            </p>
+          <% end %>
+        </th>
         <th><%= render "likes/like", post: @post %></th>
       </tr>
       <tr>
