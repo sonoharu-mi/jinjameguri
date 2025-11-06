@@ -11,16 +11,15 @@
         </th>
         <th>
           <%= link_to @post.user.name, user_path(@user.id) %>
-          
         </th>
       </tr>
       <tr>
         <th>
-          <p>神社の名前：<%= @post.shirine_name %></p>
+          <p class="">神社の名前：<%= @post.shirine_name %></p>
           <% if @post.tags.any? %>
             <p>タグ：
               <% @post.tags.each do |tag| %>
-                <%= link_to tag.name, tag_path(tag), class: "badge bg-secondary" %>
+                <%= link_to tag.name, tag_path(tag), class: "badge rounded-pill bg-primary text-light" %>
               <% end %>
             </p>
           <% end %>
@@ -66,8 +65,8 @@
           <% end %>
           <div>
             <%= form_with model: [@post, @post_comment] do |f| %>
-              <%= f.text_area :comment, rows: '5', placeholder: "コメントする" %>
-              <%= f.submit "送信" %>
+              <%= f.text_area :comment, rows: '5', placeholder: "コメントする" %><br>
+              <%= f.submit "送信", class: "btn btn-outline-success" %>
             <% end %>
           </div>
         </th>
