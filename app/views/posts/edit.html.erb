@@ -10,32 +10,7 @@
 <% end %>
 
 <div class="row">
-  <%= form_with model: @post do |f| %>
-    <h4 class="pb-3">写真</h4>
-    <%= f.file_field :image, accept: "image/*", required: false, class: "pb-3" %>
-    <h4>神社の名前</h4>
-    <%= f.text_field :shirine_name, class: "form-control", id: "shirine_name" %>
-    <h4>住所</h4>
-    <%= f.text_area :address, class: "form-control", id: "address" %>
-    <h4>本文</h4>
-    <%= f.text_area :body, class: "form-control", id: "body" %></br>
-    
-    <h4>駐車場の有無</h4>
-    <%= f.radio_button :parking, Post.parkings.key(0),id: "post_parking_0" %>
-    <%= f.label :parking, Post.parkings_i18n[:unavailable], value: Post.parkings.key(0), for: "post_parking_0" %>
-    <%= f.radio_button :parking, Post.parkings.key(1), id: "post_parking_1" %>
-    <%= f.label :parking, Post.parkings_i18n[:available], value: Post.parkings.key(1), for: "post_parking_1" %></br>
-
-    <h4>御朱印の有無</h4>
-    <%= f.radio_button :shirine_stamp, Post.shirine_stamps.key(0), id: "post_shirine_stamp_0" %>
-    <%= f.label :shirine_stamp, Post.shirine_stamps_i18n[:no_stamp], value: Post.shirine_stamps.key(0), for: "post_shirine_stamp_0" %>
-    <%= f.radio_button :shirine_stamp, Post.shirine_stamps.key(1), id: "post_shirine_stamp_1" %>
-    <%= f.label :shirine_stamp, Post.shirine_stamps_i18n[:has_stamp], value: Post.shirine_stamps.key(1), for: "post_shirine_stamp_1" %></br>
-
-    <h4>季節限定の御朱印</h4>
-    <%= f.select :seasonal_stamp, options_for_select(Post.seasonal_stamps_i18n.invert), class: "mb-5" %><br>
-    <%= f.submit "保存", class: "btn btn-success" %>
-  <% end %>
+  <%= render 'form', post: @post %>
 </div>
 
 <%= link_to "一覧へ戻る", posts_path %> |

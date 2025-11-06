@@ -21,9 +21,9 @@
   <%= f.label :shirine_stamp, Post.shirine_stamps_i18n[:has_stamp], value: Post.shirine_stamps.key(1), for: "post_shirine_stamp_1" %></br>
   <h4>季節限定の御朱印</h4>
   <%= f.select :seasonal_stamp, options_for_select(Post.seasonal_stamps_i18n.invert), class: "mb-5" %><br>
-
+  <br>
   <%= f.label :tag_name, "タグ（スペースまたはカンマ区切り）" %>
   <%= f.text_field :tag_name, class: "form-control", placeholder: "例）八幡宮, 神宮, 大社" %>
 
-  <%= f.submit '投稿', class: "my-5 btn btn-success" %>
+  <%= f.submit '投稿', class: "my-5 btn btn-outline-success" %>
 <% end %><br>
