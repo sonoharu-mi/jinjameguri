@@ -1,0 +1,14 @@
+<h1><strong class="badge bg-primary text-light"><%= @tag.name %></strong>の投稿一覧</h1>
+<br>
+<% if @posts.any? %>
+  <div class="posts-list border border-secondary">
+    <% @posts.each do |post| %>
+      <h3><%= link_to post.shirine_name, post_path(post) %></h3>
+      <p><%= image_tag post.get_image(100,100) %></p>
+      <p><%= truncate(post.body, length: 100) %></p>
+      <p>
+        投稿者：<%= post.user.name %>
+      </p>
+    <% end %>
+  </div>
+<% end %>

@@ -7,7 +7,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    tag_list = params[:post][:tag_name].split(/[[:blank:],、]+/).uniq
+
     if @post.save
+      tag_list.each do |tag_name|
+        tag = Tag.find_or_create_by(name: tag_name)
+        @post.tags << tag
+      end
       flash[:notice] = "投稿に成功しました。"
       redirect_to post_path(@post.id)
     else
@@ -34,7 +40,14 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    tag_list = params[:post][:tag_name].split(/[[:blank:],、]+/)
+    
     if @post.update(post_params)
+      @post.tags = []
+      tag_list.each do |tag_name|
+        tag = Tag.find_or_create_by(name: tag_name)
+        @post.tags << tag
+      end
       flash[:notice] = "編集に成功しました。"
       redirect_to post_path(@post.id)
     else
