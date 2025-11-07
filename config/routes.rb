@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   resources :tags, only: [:show]
   resources :users, only: [:mypage, :show, :edit, :update, :destroy, :destroy]
   get "/search", to: "searches#search"
+  resources :groups, only: [:new,:create, :index, :edit, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
