@@ -22,23 +22,29 @@
           <div class="navbar-collapse collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
-                <li class=""nav-item">
+                <li class="nav-item">
                   <%= link_to "ご案内", about_path, class: "nav-link" %>
                 </li>
-                <li class=""nav-item">
+                <li class="nav-item">
+                  <%= link_to "参拝記一覧", posts_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
                   <%= link_to "新しい記を綴る", new_post_path, class: "nav-link" %>
                 </li>
-                <li class=""nav-item">
+                <li class="nav-item">
                   <%= link_to "私の参拝帖", mypage_path, class: "nav-link" %>
                 </li>
-                <li class=""nav-item">
-                <%= link_to "門を出る", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                <li class="nav-item">
+                  <%= link_to "グループ一覧", groups_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "門を出る", destroy_user_session_path, method: :delete, class: "nav-link" %>
                 </li>
               <% else %>
-                <li class=""nav-item">
+                <li class="nav-item">
                   <%= link_to "はじめる", new_user_registration_path, class: "nav-link" %>
                 </li>
-                <li class=""nav-item">
+                <li class="nav-item">
                   <%= link_to "門をくぐる", new_user_session_path, class: "nav-link" %>
                 </li>
               <% end %>
