@@ -21,6 +21,8 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @group = Group.find(params[:id])
+    @menbers = @group.users
   end
 
   def edit
