@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :group_users, only: [:create, :destroy]
   end
   resources :group_users, only: [] do
-    menber do
+    member do
       patch :approve
       patch :reject
     end
