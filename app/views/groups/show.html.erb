@@ -11,19 +11,20 @@
 
 <hr>
 
-<h4>申請中のユーザー</h4>
 <% if @group.owner == current_user %>
-  <% @group.group_users.pending.each do |member| %>
-    <p>
-      <%= member.user.name %>
-      <%= button_to "承認", approve_group_user_path(member), method: :patch, class: "btn btn-success btn-sm" %>
-      <%= button_to "拒否", reject_group_user_path(member), method: :patch, class: "btn btn-danger btn-denger btn-sm" %>
-    </p>
+  <h4>申請中のユーザー</h4>
+  <% if @group.group_users.pending.any? %>
+    <% @group.group_users.pending.each do |member| %>
+      <p>
+        <%= member.user.name %>
+        <%= button_to "承認", approve_group_user_path(member), method: :patch, class: "btn btn-success btn-sm" %>
+        <%= button_to "拒否", reject_group_user_path(member), method: :patch, class: "btn btn-danger btn-denger btn-sm" %>
+      </p>
+    <% end %>
+  <% else %>
+    <p>現在。申請中のユーザーはいません。</p>
   <% end %>
-<% else %>
-  <p>オーナーのみ操作可能です。</p>
 <% end %>
-
 <hr>
 
 <div class="row">

@@ -1,13 +1,16 @@
 <h1>グループ一覧</h1>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 pt-3">
     <%= form_with model: @group, url: groups_path do |f| %>
+      <div>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
       <div>
         <%= f.label :name, "グループ名" %> <br>
         <%= f.text_field :name, class: "form-controller" %>
       </div>
       <div>
-        <%= f.label :introduction, "グループ名" %> <br>
+        <%= f.label :introduction, "紹介文" %> <br>
         <%= f.text_area :introduction, class: "form-control" %>
       </div>
       <div class="mt-2">
@@ -16,14 +19,27 @@
     <% end %>
   </div>
 
-  <div class="col-md-7 offset-md-1">
-    <div class="group-list">
-      <% @groups.each do |group| %>
-        <h3><%= link_to group.name, group_path(group) %></h3>
-        <p><%= group.introduction %></p>
-        <p>作成者：<%= group.owner.name %></p>
-      <% end %>
-    </div>
+  <div class="col-md-7 offset-md-1 pt-3">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>グループ名</th>
+          <th>作成者</th>
+          <th>紹介文</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @groups.each do |group| %>
+            <td><%= image_tag group.get_image(100,100) %></td>
+            <td><h3><%= link_to group.name, group_path(group) %></h3></td>
+            <td><%= group.owner.name %></td>
+            <td><%= group.introduction %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
