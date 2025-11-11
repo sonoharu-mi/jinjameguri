@@ -1,0 +1,43 @@
+<h2><%= @group.name %></h2>
+<p class="text-muted">作成者：<%= @group.owner.name %></p>
+<div class="mt-3">
+  <h4>紹介文</h4>
+  <p><%= simple_format(@group.introduction) %></p>
+</div>
+
+<% unless @group.owner == current_user || @group.users.include?(current_user) %>
+  <%= button_to "参加申請する", group_group_users_path(@group), method: :post, class: "btn btn-primary" %>
+<% end %>
+
+<hr>
+
+<h4>申請中のユーザー</h4>
+<% if @group.owner == current_user %>
+  <% @group.group_users.pending.each do |member| %>
+    <p>
+      <%= member.user.name %>
+      <%= button_to "承認", approve_group_user_path(member), method: :patch, class: "btn btn-success btn-sm" %>
+      <%= button_to "拒否", reject_group_user_path(member), method: :patch, class: "btn btn-danger btn-denger btn-sm" %>
+    </p>
+  <% end %>
+<% else %>
+  <p>オーナーのみ操作可能です。</p>
+<% end %>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-3">
+    <h4>メンバー一覧</h4>
+    <ul>
+      <li><strong><i class="fa-solid fa-crown"></i><%= @group.owner.name %></strong></li>
+      <% @group.group_users.approved.each do |member| %>
+        <li><%= member.user.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="mt-3">
+  <%= link_to "グループ一覧に戻る", groups_path %>
+</div>

@@ -36,11 +36,12 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @tag_list = @post.tags.pluck(:name).join(',')
   end
 
   def update
     @post = Post.find(params[:id])
-    tag_list = params[:post][:tag_name].split(/[[:blank:],、]+/)
+    tag_list = params[:post][:tag_name].split(/[[:blank:],、]+/).uniq
     
     if @post.update(post_params)
       @post.tags = []

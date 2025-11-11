@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy 
+  has_many :groups, through: :group_users
+  has_many :owned_groups, class_name: 'Group', foreign_key: 'owner_id', dependent: :destroy
   has_one_attached :profile_image
 
   def get_profile_image(width,height)
