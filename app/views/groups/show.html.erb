@@ -28,20 +28,14 @@
 
 <div class="row">
   <div class="col-md-3">
-    <% if @group.respond_to?(:users) && @group.users.any? %>
-      <div class="mt-4">
-        <h4>メンバー一覧</h4>
-        <ul>
-          <% @group.users.each do |user| %>
-            <li><%= user.name %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <h4>メンバー一覧</h4>
+    <ul>
+      <li><strong><i class="fa-solid fa-crown"></i><%= @group.owner.name %></strong></li>
+      <% @group.group_users.approved.each do |member| %>
+        <li><%= member.user.name %></li>
+      <% end %>
+    </ul>
   </div>
-
-  
-
 </div>
 
 <div class="mt-3">
