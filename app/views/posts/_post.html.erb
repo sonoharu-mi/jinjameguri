@@ -1,15 +1,4 @@
-<%= render "searches/form" %>
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>神社名</th>
-      <th>記録</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+
     <tr>
       <td>
         <%= link_to post_path(post.user_id) do %>
@@ -28,6 +17,4 @@
     <tr>
       <td><p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p></td>
     </tr>
-  </tbody>
-</table>
-
+  
