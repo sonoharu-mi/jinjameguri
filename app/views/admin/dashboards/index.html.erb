@@ -1,31 +1,9 @@
-<h1>全ユーザー一覧</h1>
+<h1>管理者ダッシュボード</h1>
+
 <ul>
-  <% @users.each do |user| %>
-    <li>
-      <%= user.name %> - <%= user.email %>
-      <%= link_to '削除',admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？'} %>
-    </li>
-  <% end %>
+  <%= link_to "ユーザー管理", admin_users_path %>
   <br>
-  <h1>投稿一覧</h1>
-  <% @posts.each do |post| %>
-    <li>
-      <%= post.shirine_name %> <br>
-      <%= post.address %> <br>
-      <%= post.body %> <br>
-      <%= image_tag post.get_image(100,100) %><br>
-      <%= link_to '削除',admin_post_path(post), method: :delete, data: { confirm: '本当に削除しますか？'} %>
-    </li>
-  <% end %>
+  <%= link_to "投稿管理", admin_posts_path %>
   <br>
-  <h1>コメント一覧</h1>
-  <% @post_comments.each do |post_comment| %>
-    <li>
-    <%= image_tag post_comment.user.get_profile_image(100,100) %>
-    <%= post_comment.user.name %>
-    <%= post_comment.comment %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-    <%= link_to '削除',admin_post_comment_path(post_comment), method: :delete, data: { confirm: '本当に削除しますか？'} %>
-    </li>
-  <% end %>
+  <%= link_to "コメント管理", admin_post_comments_path %>
 </ul>
