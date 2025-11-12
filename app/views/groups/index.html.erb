@@ -20,6 +20,7 @@
   </div>
 
   <div class="col-md-7 offset-md-1 pt-3">
+    <%= render "searches/form" %>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -30,14 +31,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <% @groups.each do |group| %>
-            <td><%= image_tag group.get_image(100,100) %></td>
-            <td><h3><%= link_to group.name, group_path(group) %></h3></td>
-            <td><%= group.owner.name %></td>
-            <td><%= group.introduction %></td>
-          <% end %>
-        </tr>
+        <%= render "groups/groups", groups: @groups %>
       </tbody>
     </table>
   </div>

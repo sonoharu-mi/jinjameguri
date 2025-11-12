@@ -12,4 +12,12 @@ class Group < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
+
+  def self.search_for(content, method)
+    if method == "perfect"
+      where(name: content)
+    else
+      where("name LIKE ?", "%#{content}%")
+    end
+  end
 end
