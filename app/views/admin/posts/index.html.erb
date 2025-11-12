@@ -1,0 +1,15 @@
+<h2>投稿一覧</h2>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.shirine_name %> <br>
+      <%= post.address %> <br>
+      <%= post.body %> <br>
+      <%= image_tag post.get_image(100,100) %><br>
+      <%= link_to '削除',admin_post_path(post), method: :delete, data: { confirm: '本当に削除しますか？'} %>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+<%= link_to "戻る", admin_dashboards_path %> 

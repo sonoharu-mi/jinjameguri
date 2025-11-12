@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :password], controllers: {sessions: 'admin/sessions'}
   namespace :admin do
     get 'dashboards', to: 'dashboards#index'
-    resources :users, only: [:destroy]
-    resources :posts, only: [:destroy]
-    resources :post_comments, only: [:destroy]
+    resources :users, only: [:index, :destroy]
+    resources :posts, only: [:index, :destroy]
+    resources :post_comments, only: [:index, :destroy]
     resources :groups, only: [:index, :destroy]
   end
 
