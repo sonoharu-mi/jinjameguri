@@ -1,9 +1,10 @@
+<h2 class="pt-3">検索結果：「<%= @content %>」</h2>
 <% if @records.any? %>
-  <h2 class="pt-3">検索結果：<%= @content %></h2>
-  <br>
-  <%= render "posts/posts", posts: @records %>
+  <% if @model == "post" %>
+    <%= render "posts/posts", posts: @records %>
+  <% elsif @model == "group" %>
+    <%= render "groups/groups", groups: @records %>
+  <% end %>
 <% else %>
   <p>該当する投稿はありませんでした。</p>
 <% end %>
-
-<%= link_to "戻る", "/posts" %>
