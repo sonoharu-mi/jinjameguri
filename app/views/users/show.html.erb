@@ -3,8 +3,20 @@
   <%= image_tag @user.get_profile_image(100,100) %>
 </div>
 
-
-<%= render @posts %>
+<table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>神社名</th>
+        <th>記録</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @posts %>
+    </tbody>
+  </table>
 
 
 <%= link_to "一覧に戻る", posts_path %>

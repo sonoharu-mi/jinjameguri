@@ -24,8 +24,22 @@
 </div>
 <div class="row">
   <h3 class="mt-5">参拝記録</h3>
+  <%= render "searches/form" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>神社名</th>
+        <th>記録</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @posts %>
+    </tbody>
+  </table>
 
-  <%= render @posts %>
 </div>
 <div class="row">
   <%= link_to "一覧へ戻る", posts_path %>
