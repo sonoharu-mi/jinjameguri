@@ -1,9 +1,16 @@
-<h1>管理者ダッシュボード</h1>
+<h1 class="mt-3">管理者ダッシュボード</h1>
 
 <ul>
-  <%= link_to "ユーザー管理", admin_users_path %>
-  <br>
-  <%= link_to "投稿管理", admin_posts_path %>
-  <br>
-  <%= link_to "コメント管理", admin_post_comments_path %>
+  <li>
+    <%= link_to "ユーザー管理", admin_users_path %>
+  </li>
+  <li>
+    <%= link_to "投稿管理", admin_posts_path %>
+  </li>
+  <li>
+    <%= link_to "コメント管理", admin_post_comments_path %>
+  </li>
+  <li>
+    <%= link_to "グループ管理", admin_groups_path %>
+  </li>
 </ul>
