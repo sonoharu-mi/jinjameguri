@@ -27,6 +27,9 @@
         <th><%= render "likes/like", post: @post %></th>
       </tr>
       <tr>
+        <th><span><i class="fa-solid fa-location-dot"></i><%= @post.address %></th>
+      </tr>
+      <tr>
         <th>駐車場の有無：<%= @post.parking_i18n %></th>
       </tr>
       <tr>
