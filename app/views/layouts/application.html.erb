@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/5c9065dcd4.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
@@ -29,7 +30,7 @@
                   <%= link_to "参拝記一覧", posts_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "新しい記を綴る", new_post_path, class: "nav-link" %>
+                  <%= link_to "新しい記を綴る", new_post_path, class: "nav-link", data: {turbolinks: "false"} %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "私の参拝帖", mypage_path, class: "nav-link" %>
@@ -61,5 +62,6 @@
         <%= yield %>
       </div>
     </main>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-jpostal-ja@2.14.45/jquery.jpostal.min.js"></script>
   </body>
 </html>

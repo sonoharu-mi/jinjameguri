@@ -30,6 +30,8 @@ class Post < ApplicationRecord
     end
   end
 
+  geocoded_by :address
+  after_validation :geocode
 
   def favorited_by?(user)
     likes.exists?(user_id: user.id)
