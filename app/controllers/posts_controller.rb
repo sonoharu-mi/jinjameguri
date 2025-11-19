@@ -24,8 +24,14 @@ class PostsController < ApplicationController
   end
 
   def index
-    @users = User.all
-    @posts = Post.all
+    respond_to do |format|
+      format.html do
+        @posts = Post.page(params[:page])
+      end
+      format.json do
+        @post.includes(:user).all
+      end
+    end
   end
 
   def show
