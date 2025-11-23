@@ -59,7 +59,7 @@ Post.find_or_create_by!(shirine_name: "伏見稲荷神社") do |post|
   post.user = hinata
 end
 
-Post.find_or_create_by!(shirine_name: "靖国神社") do |post|
+Post.find_or_create_by!(shirine_name: "靖國神社") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/靖国神社.jpg"), filename:"靖国神社.jpg")
   post.address = "東京都千代田区九段北3-1-1"
   post.body = "よく参拝させていただいています"
@@ -68,5 +68,12 @@ Post.find_or_create_by!(shirine_name: "靖国神社") do |post|
   post.seasonal_stamp = "regular"
   post.user = hinata
 end
+
+group = Group.find_or_create_by!(name: "推し神社を語ろうの会") do |group|
+  group.introduction = "今まで参拝した神社の中で特にお気に入りの神社を教えてください。"
+  group.owner = tanaka
+end
+
+group.users << yamada unless group.users.include?(yamada)
 
 puts "seedの実行が完了しました"
