@@ -24,12 +24,13 @@ class PostsController < ApplicationController
   end
 
   def index
+    
     respond_to do |format|
       format.html do
         @posts = Post.page(params[:page])
       end
       format.json do
-        @post.includes(:user).all
+        @posts = Post.includes(:user).all
       end
     end
   end
