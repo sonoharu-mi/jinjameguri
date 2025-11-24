@@ -24,7 +24,6 @@ class PostsController < ApplicationController
   end
 
   def index
-    
     respond_to do |format|
       format.html do
         @posts = Post.page(params[:page])
