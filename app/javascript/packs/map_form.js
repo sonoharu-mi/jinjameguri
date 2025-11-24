@@ -43,8 +43,8 @@
   // ドラッグ終了で座標と住所を更新
   google.maps.event.addListener(marker, "dragend", () => {
     const pos = marker.position;
-    document.getElementById("post_latitude").value = pos.lat();
-    document.getElementById("post_longitude").value = pos.lng();
-    fillAddress({ let: pos.let(), lng: pos.lng() });
+    document.getElementById("post_latitude").value = pos.lat;
+    document.getElementById("post_longitude").value = pos.lng;
+    fillAddress({ lat: pos.lat, lng: pos.lng });
   });
 })();
