@@ -10,8 +10,15 @@
 <% end %>
 
 <div class="row">
-  <%= render 'form', post: @post %>
+  <div class="col-md-4">
+    <%= render 'form', post: @post %>
+  </div>
+  <div class="col-md-7 offset-md-1">
+    <div id="map" style="width:100%; height:500px;"></div>
+  </div>
 </div>
 
 <%= link_to "一覧へ戻る", posts_path %> |
 <%= link_to "参拝記へ戻る", post_path %>
+
+<%= javascript_pack_tag "map_form", 'data-turbolinks-track': 'reload' %>

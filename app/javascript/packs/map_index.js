@@ -46,6 +46,7 @@ async function initMap() {
         title: shirineName,
         // 他の任意のオプションもここに追加可能
       });
+
       const contentString = `
         <div class="information container p-0">
           <div class="mb-3 d-flex align-items-center">
