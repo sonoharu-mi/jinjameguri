@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendar = new Calendar(calendarEl, {
     plugins: [dayGridPlugin],
     initialView: 'dayGridMonth',
-    calendars: calendarData
+    calendars: '/calendars'
   });
 
   calendar.render();
