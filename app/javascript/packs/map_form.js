@@ -1,7 +1,9 @@
 // map_form.js（修正版）
-window.googleMapsInitForm = async function () {
+document.addEventListener("turbolinks:load", async () => {
   const mapEl = document.getElementById("map");
-  if (!mapEl) return; // new/edit 以外では実行しない
+  if (!mapEl) return; // map がないページは何もしない
+
+  await window.waitForGoogleMaps();
 
   const { Map } = await google.maps.importLibrary("maps");
   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
@@ -106,4 +108,4 @@ window.googleMapsInitForm = async function () {
     marker.position = { lat: pos.lat(), lng: pos.lng() };
     updatePosition(pos);
   });
-};
+});

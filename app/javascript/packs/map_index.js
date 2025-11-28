@@ -1,11 +1,12 @@
 
 
 // ライブラリの読み込み
-
-window.googleMapsInit = async function () {
+document.addEventListener("turbolinks:load", async () => {
   const mapEl = document.getElementById("map");
-  if (!mapEl) return;  // map がない画面では何もしない
+  if (!mapEl) return; // map がないページは何もしない
 
+  await window.waitForGoogleMaps();
+  
   const { Map } = await google.maps.importLibrary("maps");
   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker")
 
@@ -77,4 +78,4 @@ window.googleMapsInit = async function () {
   } catch (error) {
     console.error('Error fetching or processing post images:', error);
   }
-}
+})
