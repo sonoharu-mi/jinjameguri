@@ -1,9 +1,9 @@
 class CalendarsController < ApplicationController
   def index
-    @calendars = Calendar.all
+    @events = Calendar.all
     respond_to do |format|
       format.html
-      format.json{ render json: @calendars }
+      format.json
     end
   end
 end

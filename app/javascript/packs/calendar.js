@@ -4,12 +4,13 @@ import listPlugin from "@fullcalendar/list";
 
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
+  if (!calendarEl) return;
 
   var calendar = new Calendar(calendarEl, {
     plugins: [dayGridPlugin, listPlugin],
     initialView: 'dayGridMonth',
     locale: "jp",
-    events: '/calendars',
+    events: '/calendars.json',
     windowResize: function () { 
       if (window.innerWidth < 991.98) {
           calendar.changeView('listMonth');
