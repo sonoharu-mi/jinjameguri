@@ -1,6 +1,6 @@
 // map_form.js（修正版）
-document.addEventListener("turbolinks:load", async () => {
-  const mapEl = document.getElementById("map");
+document.addEventListener('DOMContentLoaded', async () => {
+  const mapEl = document.getElementById("map_form");
   if (!mapEl) return; // map がないページは何もしない
 
   await window.waitForGoogleMaps();
@@ -21,7 +21,7 @@ document.addEventListener("turbolinks:load", async () => {
       ? { lat: initialLat, lng: initialLng }
       : defaultPosition;
 
-  const map = new Map(document.getElementById("map"), {
+  const map = new Map(document.getElementById("map_form"), {
     center: initPosition,
     zoom: 15,
     mapId: "DEMO_MAP_ID" // 実運用ではあなたのMap IDに置き換えてください

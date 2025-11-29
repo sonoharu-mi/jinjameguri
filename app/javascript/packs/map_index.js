@@ -1,7 +1,7 @@
 
 
 // ライブラリの読み込み
-document.addEventListener("turbolinks:load", async () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const mapEl = document.getElementById("map");
   if (!mapEl) return; // map がないページは何もしない
 

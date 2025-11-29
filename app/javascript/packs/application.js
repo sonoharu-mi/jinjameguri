@@ -13,12 +13,12 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
 
-import "./map_index";
-import "./map_form";
+//import "./map_index";
+//import "./map_form";
 import './calendar';
 
 Rails.start()
-Turbolinks.start()
+//Turbolinks.start()
 ActiveStorage.start()
 
 window.waitForGoogleMaps = function () {
