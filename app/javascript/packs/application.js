@@ -13,11 +13,27 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
 
-import "./map_index";
-import "./map_form";
+//import "./map_index";
+//import "./map_form";
+import './calendar';
 
 Rails.start()
-Turbolinks.start()
+//Turbolinks.start()
 ActiveStorage.start()
+
+window.waitForGoogleMaps = function () {
+  return new Promise((resolve) => {
+    if (window.google && window.google.maps) {
+      resolve();
+      return;
+    }
+    const timer = setInterval(() => {
+      if (window.google && window.google.maps) {
+        clearInterval(timer);
+        resolve();
+      }
+    }, 50);
+  });
+};
 
 

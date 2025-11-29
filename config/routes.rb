@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'calendars/index'
   get 'tags/index'
   get 'tags/show'
   devise_for :admin, skip: [:registrations, :password], controllers: {sessions: 'admin/sessions'}
@@ -30,5 +31,7 @@ Rails.application.routes.draw do
       patch :reject
     end
   end
+  resources :calendars, only: [:index]
+  get '/calendars', to: 'calendars#index', defaults: { format: 'json' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

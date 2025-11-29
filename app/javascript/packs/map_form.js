@@ -1,5 +1,10 @@
 // map_form.js（修正版）
-(async function() {
+document.addEventListener('DOMContentLoaded', async () => {
+  const mapEl = document.getElementById("map_form");
+  if (!mapEl) return; // map がないページは何もしない
+
+  await window.waitForGoogleMaps();
+
   const { Map } = await google.maps.importLibrary("maps");
   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
@@ -16,7 +21,7 @@
       ? { lat: initialLat, lng: initialLng }
       : defaultPosition;
 
-  const map = new Map(document.getElementById("map"), {
+  const map = new Map(document.getElementById("map_form"), {
     center: initPosition,
     zoom: 15,
     mapId: "DEMO_MAP_ID" // 実運用ではあなたのMap IDに置き換えてください
@@ -103,4 +108,4 @@
     marker.position = { lat: pos.lat(), lng: pos.lng() };
     updatePosition(pos);
   });
-})();
+});
