@@ -31,7 +31,6 @@ Rails.application.routes.draw do
       patch :reject
     end
   end
-  resources :calendars, only: [:index]
-  get '/calendars', to: 'calendars#index', defaults: { format: 'json' }
+  resources :calendars, only: [:index, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
