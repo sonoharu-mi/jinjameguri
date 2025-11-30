@@ -37,6 +37,8 @@ Post.find_or_create_by!(shirine_name: "別府八幡宮") do |post|
   post.parking = "available"
   post.shirine_stamp = "has_stamp"
   post.seasonal_stamp = "october"
+  post.latitude = 34.009960
+  post.longitude = 131.170140
   post.user = tanaka
 end
 
@@ -46,6 +48,8 @@ Post.find_or_create_by!(shirine_name: "福徳稲荷神社") do |post|
   post.parking = "available"
   post.shirine_stamp = "has_stamp"
   post.seasonal_stamp = "regular"
+  post.latitude = 34.198167
+  post.longitude = 130.935333
   post.user = yamada
 end
 
@@ -56,6 +60,8 @@ Post.find_or_create_by!(shirine_name: "伏見稲荷神社") do |post|
   post.parking = "available"
   post.shirine_stamp = "has_stamp"
   post.seasonal_stamp = "october"
+  post.latitude = 34.967037
+  post.longitude = 135.773499
   post.user = hinata
 end
 
@@ -66,6 +72,8 @@ Post.find_or_create_by!(shirine_name: "靖國神社") do |post|
   post.parking = "available"
   post.shirine_stamp = "has_stamp"
   post.seasonal_stamp = "regular"
+  post.latitude = 35.69417
+  post.longitude = 139.74278
   post.user = hinata
 end
 

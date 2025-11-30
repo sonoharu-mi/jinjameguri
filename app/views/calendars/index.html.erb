@@ -3,17 +3,17 @@
 
 <%= form_with model: @calendar, local: true do |f| %>
   <div>
-    <%= f.label :event_name, "行事名" %>
-    <%= f.text_field :event_name %>
+    <%= f.label :event, "行事名" %>
+    <%= f.text_field :event %>
   </div>
 
   <div>
-    <%= f.label :prefecture, "県" %>
+    <%= f.label :prefecture, "都道府県" %>
     <%= f.text_field :prefecture %>
   </div>
 
   <div>
-    <%= f.label :city, "市" %>
+    <%= f.label :city, "市区町村" %>
     <%= f.text_field :city %>
   </div>
 
