@@ -4,5 +4,14 @@
 <br>
 <p>あなたの一歩が、新しい発見やご縁につながります。</p>
 <br>
-<%= link_to "門をくぐる", new_user_session_path %><br>
-<%= link_to "はじめる", new_user_registration_path %>
+<div class="btn-wrapper col-10 mx-auto">
+  <div class="row">
+    <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+  </div>
+  <div class="row">
+    <%= link_to "門をくぐる", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+  </div>
+  <div class="row">
+    <%= link_to "はじめる", new_user_registration_path, class: "btn btn-success btn-sm btn-block mb-3 sign_up" %>
+  </div>
+</div>

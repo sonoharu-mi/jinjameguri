@@ -15,10 +15,13 @@
 </table>
 <br>
   <p><%= @mypage.introduction %></p>
-
-<div class="row">
-  <%= link_to "プロフィールを編集する", edit_user_path(@mypage), class: "mt-3" %>
-</div>
+<% unless @mypage.guest_user? %>
+  <div class="row">
+    <%= link_to "プロフィールを編集する", edit_user_path(@mypage), class: "btn btn-outline-secondary btn-block mt-3" do %>
+      <i class="fa-solid fa-pen-to-square"></i>
+    <% end %>
+  </div>
+<% end %>
 <div class="row">
   <%= link_to "新しい記を綴る", new_post_path(@post_new), class: "mt-1" %>
 </div>

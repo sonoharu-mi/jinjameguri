@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'calendars/index'
-  get 'tags/index'
-  get 'tags/show'
   devise_for :admin, skip: [:registrations, :password], controllers: {sessions: 'admin/sessions'}
   namespace :admin do
     get 'dashboards', to: 'dashboards#index'
@@ -13,6 +10,9 @@ Rails.application.routes.draw do
 
   root to: "homes#top"
   devise_for :users
+  devise_scope :user do
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+  end
   get "/homes/about" => "homes#about", as: "about"
   get '/mypage' => "users#mypage", as: "mypage"
   resources :posts do

@@ -71,7 +71,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit( :shirine_name, :body, :address, :parking, :shirine_stamp, :seasonal_stamp, :image)
+    params.require(:post).permit( :shirine_name, :body, :address, :latitude, :longitude, :parking, :shirine_stamp, :seasonal_stamp, :image, :tag_name)
   end
 
   def is_matcing_login_user
