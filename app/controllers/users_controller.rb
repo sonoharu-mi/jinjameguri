@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_guest_user, only: [:edit]
 
   def mypage
     @mypage = User.find(current_user.id)
@@ -41,6 +42,13 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     unless user.id == current_user.id
       redirect_to user_path(current_user.id)
+    end
+  end
+
+  def ensure_guest_user
+    @mypage = User.find(params[:id])
+    if @mupage.guest_user?
+      redirect_to mypage_path(current_user), notice: "ゲストユーザーはプロフィール編集できません。"
     end
   end
 end

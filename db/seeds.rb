@@ -77,6 +77,18 @@ Post.find_or_create_by!(shirine_name: "靖國神社") do |post|
   post.user = hinata
 end
 
+Post.find_or_create_by!(shirine_name: "神田明神") do |post|
+  post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/神田明神.jpg"), filename:"神田明神.jpg")
+  post.address = "東京都千代田区外神田２丁目１６−２"
+  post.body = "日本三大祭りである神田祭を行う神社です。"
+  post.parking = "available"
+  post.shirine_stamp = "has_stamp"
+  post.seasonal_stamp = "october"
+  post.latitude = 35.702028
+  post.longitude = 139.767889
+  post.user = tanaka
+end
+
 group = Group.find_or_create_by!(name: "推し神社を語ろうの会") do |group|
   group.introduction = "今まで参拝した神社の中で特にお気に入りの神社を教えてください。"
   group.owner = tanaka
