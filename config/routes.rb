@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy]
   end
   resources :tags, only: [:show]
-  resources :users, only: [:mypage, :show, :edit, :update, :destroy, :destroy]
+  resources :users, only: [:mypage, :index, :show, :edit, :update, :destroy, :destroy]
   get "/search", to: "searches#search"
   resources :groups, only: [:create, :index, :show, :edit, :update, :destroy] do
     resources :group_users, only: [:create, :destroy]
