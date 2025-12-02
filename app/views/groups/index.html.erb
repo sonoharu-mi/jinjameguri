@@ -21,19 +21,7 @@
 
   <div class="col-md-7 offset-md-1 pt-3">
     <%= render "searches/form" %>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th></th>
-          <th>グループ名</th>
-          <th>作成者</th>
-          <th>紹介文</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render "groups/groups", groups: @groups %>
-      </tbody>
-    </table>
+    <%= render "groups/groups", groups: @groups %>
   </div>
 </div>
 

@@ -1,8 +1,21 @@
-<% groups.each do |group| %>
-  <tr>
-    <td><%= image_tag group.get_image(100,100) %></td>
-    <td><h4><%= link_to group.name, group_path(group) %></h4></td>
-    <td><%= group.owner.name %></td>
-    <td><%= group.introduction %></td>
-  </tr>
-<% end %>
+<table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>グループ名</th>
+          <th>作成者</th>
+          <th>紹介文</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% groups.each do |group| %>
+          <tr>
+            <td><%= image_tag group.get_image(100,100) %></td>
+            <td><h4><%= link_to group.name, group_path(group) %></h4></td>
+            <td><%= group.owner.name %></td>
+            <td><%= group.introduction %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+

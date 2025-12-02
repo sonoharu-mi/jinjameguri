@@ -1,6 +1,16 @@
 <div class="row">
   <h1 class="mb-3">私の参拝帖</h1>
 </div>
+<div class="row mt-5">
+  <ul class="nav nav-tabs" id="postTabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-tab="my-pasts">私の参拝帖</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-tab="liked-posts">いいねした投稿</a>
+    </li>
+  </ul>
+</div>
 <table class="table">
   <tbody>
     <tr>
@@ -17,13 +27,17 @@
   <p><%= @mypage.introduction %></p>
 <% unless @mypage.guest_user? %>
   <div class="row">
-    <%= link_to "プロフィールを編集する", edit_user_path(@mypage), class: "btn btn-outline-secondary btn-block mt-3" do %>
+    <%= link_to edit_user_path(@mypage), class: "btn btn-outline-secondary btn-block mt-3" do %>
       <i class="fa-solid fa-pen-to-square"></i>
+      プロフィールを編集する
     <% end %>
   </div>
 <% end %>
 <div class="row">
-  <%= link_to "新しい記を綴る", new_post_path(@post_new), class: "mt-1" %>
+  <%= link_to new_post_path(@post_new), class: "btn btn-outline-primary btn-block mt-2" do %>
+    <i class="fa-solid fa-file-pen"></i>
+    新しい記を綴る
+  <% end %>
 </div>
 <div class="row">
   <h3 class="mt-5">参拝記録</h3>
