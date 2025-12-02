@@ -1,0 +1,10 @@
+<h2>参拝者一覧</h2>
+
+<%= render "searches/form" %>
+
+
+    <%= render "users/users", users: @users %>
+
+<div class="row">
+  <%= link_to "一覧へ戻る", posts_path %>
+</div>

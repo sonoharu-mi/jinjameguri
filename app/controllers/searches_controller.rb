@@ -9,6 +9,8 @@ class SearchesController < ApplicationController
       @records = Post.search_for(@content, @method)
     elsif @model == "group"
       @records = Group.search_for(@content, @method)
+    elsif @model == "user"
+      @records = User.search_for(@content, @method)
     else
       @records = []
     end
