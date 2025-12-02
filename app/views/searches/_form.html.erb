@@ -1,7 +1,7 @@
 <div class="pt-3">
   <% if user_signed_in? %>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.select :model, options_for_select({"投稿" => "post", "グループ" => "group"}) %>
+      <%= f.select :model, options_for_select({"投稿" => "post", "グループ" => "group", "参拝者" => "user"}) %>
       <%= f.text_field :content, placeholder: "キーワードを入力" %>
       <%= f.select :method, options_for_select({"完全一致" => "perfect", "部分一致" => "partial"}) %>
       <%= f.submit "検索" %>

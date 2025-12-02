@@ -4,7 +4,9 @@
     <%= render "posts/posts", posts: @records %>
   <% elsif @model == "group" %>
     <%= render "groups/groups", groups: @records %>
+  <% elsif @model == "user" %>
+    <%= render "users/users", users: @records %>
   <% end %>
 <% else %>
-  <p>該当する投稿はありませんでした。</p>
+  <p>該当するデータはありませんでした。</p>
 <% end %>
