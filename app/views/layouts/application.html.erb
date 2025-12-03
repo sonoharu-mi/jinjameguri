@@ -16,7 +16,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="/"><span>巡んじゃ</span></a>
+          <a class="navbar-brand" href="/"><span><i class="fa-solid fa-torii-gate"></i> 巡んじゃ</span></a>
           <button class="navbar-toggler" type="buttan" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-lable="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -26,23 +26,48 @@
                 <li class="nav-item">
                   <%= link_to "ご案内", about_path, class: "nav-link" %>
                 </li>
-                <li class="nav-item">
-                  <%= link_to "参拝記一覧", posts_path, class: "nav-link" %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    投稿
+                  </a>
+                  <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-item">
+                      <%= link_to posts_path, class: "nav-lin text-info" do %>
+                        <i class="fa-solid fa-newspaper"></i>
+                        参拝記一覧
+                      <% end %>
+                    </div>
+                    <div class="dropdown-item">
+                      <%= link_to new_post_path, class: "nav-link text-info", data: {turbolinks: "false"} do %>
+                        <i class="fa-solid fa-file-pen"></i>
+                        新しい記を綴る
+                      <% end %>
+                    </div>
+                    <div class="dropdown-item">
+                      <%= link_to mypage_path, class: "nav-link text-info" do %>
+                        <i class="fa-solid fa-id-card"></i>
+                        私の参拝帖
+                      <% end %>
+                    </div>
+                    <div class="dropdown-item">
+                      <%= link_to users_path, class: "nav-link text-info" do %>
+                        <i class="fa-solid fa-user-group"></i>
+                        参拝者一覧
+                      <% end %>
+                    </div>
+                  </div>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "新しい記を綴る", new_post_path, class: "nav-link", data: {turbolinks: "false"} %>
+                  <%= link_to groups_path, class: "nav-link" do %>
+                    <i class="fa-solid fa-users"></i>
+                    ぶらり参拝会
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "私の参拝帖", mypage_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "参拝者一覧", users_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "グループ一覧", groups_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "季節の行事", calendars_path, class: "nav-link" %>
+                  <%= link_to calendars_path, class: "nav-link" do %>
+                    <i class="fa-solid fa-calendar"></i>
+                    季節の行事
+                  <% end %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "門を出る", destroy_user_session_path, method: :delete, class: "nav-link" %>
@@ -61,7 +86,7 @@
       </nav>
     </header>
     <main>
-      <div class="container">
+      <div class="container-md">
         <% flash.each do |message_type, message| %>
           <div class="flash_message <%= message_type %> "><%= message %></div>
         <% end %>

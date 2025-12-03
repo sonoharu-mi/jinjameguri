@@ -1,17 +1,25 @@
-<h1>プロフィール編集</h1>
-
-<%= form_with model: @user do |f| %>
-  <label for="inputName">名前</label><br>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%><br>
-  <label for="inputIntroduction">自己紹介文</label><br>
-  <%= f.text_area :introduction %> <br>
-  <label for="inputImage">プロフィール画像</label><br>
-  <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %><br>
-  <%= f.submit "編集を保存" %>
-<% end %>
-
-<% if @user == current_user %>
-  <%= link_to "退会", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
-<% end %>
-
-<%= link_to "戻る", mypage_path %>
+<div class="row">
+  <div class="d-flex justify-content-center">
+    <h1>プロフィール編集</h1>
+  </div>
+</div>
+<div class="row">
+  <%= form_with model: @user do |f| %>
+    <label for="inputName">名前</label><br>
+    <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前", class: "form-control" %><br>
+    <label for="inputIntroduction">自己紹介文</label><br>
+    <%= f.text_area :introduction, class: "form-control" %> <br>
+    <label for="inputImage">プロフィール画像</label><br>
+    <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*", class: "" %><br>
+    <%= f.submit "編集を保存", class: "btn btn-outline-success mt-5" %>
+  <% end %>
+</div>
+<div class="row">
+  <% if @user == current_user %>
+    <%= link_to "退会", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger mt-3" %>
+  <% end %>
+</div>
+    <br>
+<div class="row">
+  <%= link_to "戻る", mypage_path, class: "text-secondary link-underline-opacity-100-hover" %>
+</div>

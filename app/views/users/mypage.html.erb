@@ -1,6 +1,7 @@
 <div class="row">
   <h1 class="mb-3">私の参拝帖</h1>
 </div>
+
 <table class="table">
   <tbody>
     <tr>
@@ -11,39 +12,61 @@
     </th>
     <th><h3><%= @mypage.name %></h3></th>
     </tr>
+    <tr>
+      <th></th>
+      <th><%= @mypage.introduction %></th>
+    </tr>
   </tbody>
 </table>
+
 <br>
-  <p><%= @mypage.introduction %></p>
 <% unless @mypage.guest_user? %>
   <div class="row">
-    <%= link_to "プロフィールを編集する", edit_user_path(@mypage), class: "btn btn-outline-secondary btn-block mt-3" do %>
+    <%= link_to edit_user_path(@mypage), class: "btn btn-outline-secondary btn-block mt-3" do %>
       <i class="fa-solid fa-pen-to-square"></i>
+      プロフィールを編集する
     <% end %>
   </div>
 <% end %>
 <div class="row">
-  <%= link_to "新しい記を綴る", new_post_path(@post_new), class: "mt-1" %>
+  <%= link_to new_post_path(@post_new), class: "btn btn-outline-primary btn-block mt-2" do %>
+    <i class="fa-solid fa-file-pen"></i>
+    新しい記を綴る
+  <% end %>
 </div>
-<div class="row">
-  <h3 class="mt-5">参拝記録</h3>
-  <%= render "searches/form" %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th>神社名</th>
-        <th>記録</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @posts %>
-    </tbody>
-  </table>
 
+
+<div class="row mt-5">
+  <ul class="nav nav-tabs" id="postTabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-tab="my-posts">私の参拝帖</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-tab="liked-posts">いいねした投稿</a>
+    </li>
+  </ul>
 </div>
+
+<div id="my-posts" class="tab-content active mt-3">
+  <div class="row d-flex justify-content-center">
+    <h3 class="mt-5">参拝記録</h3>
+    <%= render "searches/form" %>
+    <table class="table">
+      <%= render @posts %>
+    </table>
+  </div>
+</div>
+
+<div id="liked-posts" class="tab-content mt-3" style="display:none;">
+  <table class="table">
+      <% @like_posts.each do |post| %>
+        <%= render post %>
+      <% end %>
+  </table>
+</div>
+
 <div class="row">
-  <%= link_to "一覧へ戻る", posts_path %>
+  <%= link_to "一覧へ戻る", posts_path, class: "text-secondary link-underline-opacity-100-hover mt-3" %>
 </div>
+
+<%= javascript_pack_tag 'application' %>

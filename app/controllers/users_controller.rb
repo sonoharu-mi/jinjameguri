@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def mypage
     @mypage = User.find(current_user.id)
     @posts = @mypage.posts
+    @like_posts = Post.joins(:likes).where(likes: { user_id: current_user.id})
   end
 
   def index
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
 
   def ensure_guest_user
     @mypage = User.find(params[:id])
-    if @mupage.guest_user?
+    if @mypage.guest_user?
       redirect_to mypage_path(current_user), notice: "ゲストユーザーはプロフィール編集できません。"
     end
   end

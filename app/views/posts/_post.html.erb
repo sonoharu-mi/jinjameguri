@@ -1,23 +1,22 @@
+<thead>
+  <tr>
+    <th>
+      <%= link_to post_path(post.user_id) do %>
+        <%= image_tag post.get_image(200,200) %>
+      <% end %>
+    </th>
+    <th class="text-center"><%= post.shirine_name %></th>
+  </tr>
+  <tr>
+    <th><%= post.address %></th>
+  </tr>
+  <tr><th><%= post.body %></th></tr>
+  <tr>
+    <th><%= post.parking_i18n %></th>
+    <th><%= post.shirine_stamp_i18n %></th>
+  </tr>
+  <tr>
+    <th><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></th>
+  </tr>
+</thead>
 
-    <tr>
-      <td>
-        <%= link_to post_path(post.user_id) do %>
-          <%= image_tag post.get_image(200,200) %>
-        <% end %>
-      </td>
-      <td>
-        <%= post.shirine_name %>
-      </td>
-      <td>
-        <%= post.address %>
-      </td>
-      <td>
-        <%= post.body %>
-      </td>
-      <td><%= post.parking_i18n %></td>
-      <td><%= post.shirine_stamp_i18n %></td>
-    </tr>
-    <tr>
-      <td><p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p></td>
-    </tr>
-  

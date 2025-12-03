@@ -36,4 +36,29 @@ window.waitForGoogleMaps = function () {
   });
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  const tabs = document.querySelectorAll('#postTabs .nav-link');
+  const myPosts = document.getElementById('my-posts');
+  const likedPosts = document.getElementById('liked-posts');
+
+  if (!tabs.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+
+      // タブの active 切替
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // コンテンツの切替
+      if (tab.dataset.tab === "my-posts") {
+        myPosts.style.display = 'block';
+        likedPosts.style.display = 'none';
+      } else if (tab.dataset.tab === "liked-posts") {
+        myPosts.style.display = 'none';
+        likedPosts.style.display = 'block';
+      }
+    });
+  });
+});
 
