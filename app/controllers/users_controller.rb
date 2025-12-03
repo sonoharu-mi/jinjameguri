@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
   def ensure_guest_user
     @mypage = User.find(params[:id])
-    if @mupage.guest_user?
+    if @mypage.guest_user?
       redirect_to mypage_path(current_user), notice: "ゲストユーザーはプロフィール編集できません。"
     end
   end

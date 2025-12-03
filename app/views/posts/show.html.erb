@@ -77,9 +77,9 @@
     </thead>
   </table>
   <div class="col mt-5">
-    <p>＜<%= link_to "一覧へ戻る", posts_path %> | 
+    <p>＜<%= link_to "一覧へ戻る", posts_path, class: "text-secondary link-underline-opacity-100-hover" %> | 
     <% if @post.user == current_user %>
-      <%= link_to "参拝記録を編集", edit_post_path %>
+      <%= link_to "参拝記録を編集", edit_post_path, class: "text-secondary link-underline-opacity-100-hover" %>
     <% end %></p>
   </div>
 </div>
