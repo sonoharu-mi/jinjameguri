@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :is_matcing_login_user, only: [:edit, :update]
+  
   def new
     @post = Post.new
   end

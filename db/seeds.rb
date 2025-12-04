@@ -30,7 +30,22 @@ test1 = User.find_or_create_by!(email: "test1@test.com") do |user|
   user.password = "testtest1"
 end
 
-Post.find_or_create_by!(shirine_name: "別府八幡宮") do |post|
+honoka = User.find_or_create_by!(email: "sample4@test.com") do |user|
+  user.name = "ほのか"
+  user.password = "honokadesu"
+end
+
+miyabi = User.find_or_create_by!(email: "sample5@test.com") do |user|
+  user.name = "みやび"
+  user.password = "miyabidesu"
+end
+
+koharu = User.find_or_create_by!(email: "sample6@test.com") do |user|
+  user.name = "小春"
+  user.password = "koharudesu"
+end
+
+post1 = Post.find_or_create_by!(shirine_name: "別府八幡宮") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/八幡宮.jpg"), filename:"八幡宮.jpg")
   post.address = "山口県山陽小野田市有帆１３７７−２"
   post.body = "とても整備されていて雰囲気の良い神社です"
@@ -42,7 +57,7 @@ Post.find_or_create_by!(shirine_name: "別府八幡宮") do |post|
   post.user = tanaka
 end
 
-Post.find_or_create_by!(shirine_name: "福徳稲荷神社") do |post|
+post2 = Post.find_or_create_by!(shirine_name: "福徳稲荷神社") do |post|
   post.address = "山口県下関市豊浦町宇賀2960"
   post.body = "境内の写真撮影が禁止でしたので写真はありませんが、とても素晴らしい神社でした。"
   post.parking = "available"
@@ -53,7 +68,7 @@ Post.find_or_create_by!(shirine_name: "福徳稲荷神社") do |post|
   post.user = yamada
 end
 
-Post.find_or_create_by!(shirine_name: "伏見稲荷神社") do |post|
+post3 = Post.find_or_create_by!(shirine_name: "伏見稲荷神社") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/千本鳥居.jpg"), filename:"千本鳥居.jpg")
   post.address = "京都府京都市伏見区深草薮之内町68番地"
   post.body = "千本鳥居がとても魅力的でした"
@@ -65,7 +80,7 @@ Post.find_or_create_by!(shirine_name: "伏見稲荷神社") do |post|
   post.user = hinata
 end
 
-Post.find_or_create_by!(shirine_name: "靖國神社") do |post|
+post4 = Post.find_or_create_by!(shirine_name: "靖國神社") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/靖国神社.jpg"), filename:"靖国神社.jpg")
   post.address = "東京都千代田区九段北3-1-1"
   post.body = "よく参拝させていただいています"
@@ -77,7 +92,7 @@ Post.find_or_create_by!(shirine_name: "靖國神社") do |post|
   post.user = hinata
 end
 
-Post.find_or_create_by!(shirine_name: "神田明神") do |post|
+post5 = Post.find_or_create_by!(shirine_name: "神田明神") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/神田明神.jpg"), filename:"神田明神.jpg")
   post.address = "東京都千代田区外神田２丁目１６−２"
   post.body = "日本三大祭りである神田祭を行う神社です。"
@@ -94,6 +109,22 @@ group = Group.find_or_create_by!(name: "推し神社を語ろうの会") do |gro
   group.owner = tanaka
 end
 
-group.users << yamada unless group.users.include?(yamada)
+GroupUser.find_or_create_by!(group: group, user: yamada) do |gu|
+  gu.status = :approved
+end
+
+group2 = Group.find_or_create_by!(name: "御朱印の集い") do |group|
+  group.introduction = "オシャンな御朱印教えて〜"
+  group.owner = miyabi
+end
+
+group2.image.attach(
+  io: File.open("#{Rails.root}/db/fixtures/御朱印.jpg"),
+  filename: "御朱印.jpg"
+) unless group2.image.attached?
+
+Like.find_or_create_by!(user: tanaka, post: post2)
+Like.find_or_create_by!(user: tanaka, post: post3)
+
 
 puts "seedの実行が完了しました"
