@@ -3,7 +3,7 @@
 </div>
 
 <table class="table">
-  <tbody>
+  <thead>
     <tr>
     <th>
     <%= link_to edit_user_path(@mypage) do %>
@@ -16,7 +16,7 @@
       <th></th>
       <th><%= @mypage.introduction %></th>
     </tr>
-  </tbody>
+  </thead>
 </table>
 
 <br>
@@ -59,9 +59,9 @@
 
 <div id="liked-posts" class="tab-content mt-3" style="display:none;">
   <table class="table">
-      <% @like_posts.each do |post| %>
-        <%= render post %>
-      <% end %>
+    <% @like_posts.each do |post| %>
+      <%= render post %>
+    <% end %>
   </table>
 </div>
 

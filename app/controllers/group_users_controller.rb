@@ -1,7 +1,9 @@
 class GroupUsersController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     group = Group.find(params[:group_id])
-    group_user = group.group_users.new(user_id: current_user.id, status: :pending)
+    group_user = group.group_users.new(user: current_user.id, status: :pending)
     if group_user.save
       flash[:notice] = "参加申請を送りました"
     else
@@ -22,9 +24,14 @@ class GroupUsersController < ApplicationController
     redirect_to request.referer, notice: "拒否しました"
   end
 
-  def destroy
-    group_user = GroupUser.find_by(group_id: params[:group_id], user_id: current_user.id)
-    group_user.destroy if group_user
-    redirect_to groups_path, notice: "グループを脱退しました"
+  def leave
+    group_user = GroupUser.find(params[:id])
+
+    if group_user.user == current_user
+      group_user.destroy
+      redirect_to groups_path, notice: "グループを退会しました。"
+    else
+      redirect_to group_user.group, alert: "自分以外を退会させることはできません。"
+    end
   end
 end
