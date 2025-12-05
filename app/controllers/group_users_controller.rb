@@ -3,7 +3,7 @@ class GroupUsersController < ApplicationController
 
   def create
     group = Group.find(params[:group_id])
-    group_user = group.group_users.new(user: current_user.id, status: :pending)
+    group_user = group.group_users.new(user: current_user, status: :pending)
     if group_user.save
       flash[:notice] = "参加申請を送りました"
     else

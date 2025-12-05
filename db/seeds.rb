@@ -104,6 +104,29 @@ post5 = Post.find_or_create_by!(shirine_name: "神田明神") do |post|
   post.user = tanaka
 end
 
+post6 = Post.find_or_create_by!(shirine_name: "西宮八幡宮") do |post|
+  post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/西宮八幡宮.jpg"), filename:"西宮八幡宮.jpg")
+  post.address = "山口県宇部市上条３丁目９−１５"
+  post.body = "西宮のえびす様を祀っていて宇部の総鎮守です。"
+  post.parking = "available"
+  post.shirine_stamp = "has_stamp"
+  post.seasonal_stamp = "october"
+  post.latitude = 33.958234
+  post.longitude = 131.256012
+  post.user = koharu
+end
+
+tag1 = Tag.find_or_create_by!(name: "八幡宮")
+PostTag.find_or_create_by!(post: post1, tag: tag1)
+
+post_comment1 = PostComment.find_or_create_by!(user: tanaka, post: post2) do |comment|
+  comment.comment = "すごい気になる🫣\n行ってみたいです！！"
+end
+
+post_comment2 = PostComment.find_or_create_by!(user: koharu, post: post1) do |comment|
+  comment.comment = "茅の輪初めてみた"
+end
+
 group = Group.find_or_create_by!(name: "推し神社を語ろうの会") do |group|
   group.introduction = "今まで参拝した神社の中で特にお気に入りの神社を教えてください。"
   group.owner = tanaka
