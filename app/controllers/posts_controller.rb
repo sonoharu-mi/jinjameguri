@@ -49,13 +49,15 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    tag_list = params[:post][:tag_name].split(/[[:blank:],、]+/).uniq
+    tag_list = params[:post][:tag_name].split(/[[:blank:],、]+/).uniq if params[:post][:tag_name].present?
     
     if @post.update(post_params)
-      @post.tags = []
-      tag_list.each do |tag_name|
-        tag = Tag.find_or_create_by(name: tag_name)
-        @post.tags << tag
+      if tag_list
+        @post.tags.clear
+        tag_list.each do |tag_name|
+          tag = Tag.find_or_create_by(name: tag_name)
+          @post.tags << tag
+        end
       end
       flash[:notice] = "編集に成功しました。"
       redirect_to post_path(@post.id)
@@ -73,7 +75,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit( :shirine_name, :body, :address, :latitude, :longitude, :parking, :shirine_stamp, :seasonal_stamp, :image, :tag_name)
+    params.require(:post).permit( :shirine_name, :body, :address, :latitude, :longitude, :parking, :shirine_stamp, :seasonal_stamp, :image)
   end
 
   def is_matcing_login_user

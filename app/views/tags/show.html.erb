@@ -9,6 +9,7 @@
             <div class="post-item border-bottom pt-2">
               <h3><%= link_to post.shirine_name, post_path(post) %></h3>
               <p><%= image_tag post.get_image(100,100) %></p>
+              <p><%= post.address %></p>
               <p><%= truncate(post.body, length: 30) %></p>
               <p>
                 投稿者：<%= post.user.name %>
@@ -20,3 +21,5 @@
     <% end %>
   </thead>
 </table>
+
+<%= link_to "一覧に戻る", posts_path, class: "text-secondary link-underline-opacity-100-hover" %>

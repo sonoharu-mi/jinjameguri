@@ -1,10 +1,10 @@
 <%= form_with model: post do |f| %>
 
-  <h4 class="pb-3">写真</h4>
+  <h4 class="pt-3">写真</h4>
   <%= f.file_field :image, accept: "image/*", required: false, class: "pb-3" %>
   <h4>神社の名前</h4>
   <%= f.text_field :shirine_name, class: "form-control", id: "shirine_name" %>
-  <h4>住所</h4>
+  <h4 class="mt-2">住所</h4>
   <div class="input-group mb-3 mt-4">
       <div class="input-group-prepend">
         <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-tenge-sign"></i></span>
@@ -19,8 +19,8 @@
       <%= f.hidden_field :longitude, id: "post_longitude" %>
       <%= f.text_field :address, class: "form-control", placeholder: "住所", id: "post_address" %>
     </div>
-  <h4>本文</h4>
-  <%= f.text_area :body, class: "form-control", id: "body" %></br>
+  <h4 class="mt-2">本文</h4>
+  <%= f.text_area :body, class: "form-control", placeholder: "感想や御由緒などを書きましょう。", id: "body" %></br>
   
   <h4>駐車場の有無</h4>
   <%= f.radio_button :parking, Post.parkings.key(0),id: "post_parking_0" %>
@@ -38,7 +38,13 @@
   <%= f.label :tag_name, "タグ（スペースまたはカンマ区切り）" %>
   <%= f.text_field :tag_name, class: "form-control", placeholder: "例）八幡宮, 神宮, 大社", value: @tag_list %>
 
-  <%= f.submit '投稿', class: "my-5 btn btn-outline-success" %>
+  <div class="mt-3">
+    <% if post.new_record? %>
+      <%= f.submit '投稿', class: "my-5 btn btn-outline-primary" %>
+    <% else %>
+      <%= f.submit '保存', class: "my-5 btn btn-outline-success" %>
+    <% end %>
+  </div>
 <% end %><br>
 
 
