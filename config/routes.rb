@@ -23,16 +23,12 @@ Rails.application.routes.draw do
   resources :users, only: [:mypage, :index, :show, :edit, :update, :destroy, :destroy]
   get "/search", to: "searches#search"
   resources :groups, only: [:create, :index, :show, :edit, :update, :destroy] do
-    resources :group_users, only: [] do
+    resources :group_users, only: [:create] do
       member do
         delete :leave
+        patch :approve
+        patch :reject
       end
-    end
-  end
-  resources :group_users, only: [] do
-    member do
-      patch :approve
-      patch :reject
     end
   end
   resources :calendars, only: [:index, :create]

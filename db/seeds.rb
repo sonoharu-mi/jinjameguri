@@ -107,14 +107,17 @@ end
 post6 = Post.find_or_create_by!(shirine_name: "西宮八幡宮") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/西宮八幡宮.jpg"), filename:"西宮八幡宮.jpg")
   post.address = "山口県宇部市上条３丁目９−１５"
-  post.body = "西宮"
+  post.body = "西宮のえびす様を祀っていて宇部の総鎮守です。"
   post.parking = "available"
   post.shirine_stamp = "has_stamp"
   post.seasonal_stamp = "october"
-  post.latitude = 35.702028
-  post.longitude = 139.767889
-  post.user = tanaka
+  post.latitude = 33.958234
+  post.longitude = 131.256012
+  post.user = koharu
 end
+
+tag1 = Tag.find_or_create_by!(name: "八幡宮")
+PostTag.find_or_create_by!(post: post1, tag: tag1)
 
 post_comment1 = PostComment.find_or_create_by!(user: tanaka, post: post2) do |comment|
   comment.comment = "すごい気になる🫣\n行ってみたいです！！"
