@@ -1,23 +1,25 @@
 <div class="row">
-<h1>季節の行事</h1>
-<br>
-<p>神社にまつわる行事を共有するカレンダーです</p>
+  <h1>季節の行事</h1>
+</div>
+<div class="row">
+  <br>
+  <p>神社にまつわる行事を共有するカレンダーです</p>
 </div>
 <div class="row">
   <%= form_with model: @calendar, local: true do |f| %>
     <div>
       <%= f.label :event, "行事名" %>
-      <%= f.text_field :event %>
+      <%= f.text_field :event, placeholder: "例：〇〇祭", class: "form-control" %>
     </div>
 
     <div>
       <%= f.label :prefecture, "都道府県" %>
-      <%= f.text_field :prefecture %>
+      <%= f.text_field :prefecture, placeholder: "例：東京都", class: "form-control" %>
     </div>
 
     <div>
       <%= f.label :city, "市区町村" %>
-      <%= f.text_field :city %>
+      <%= f.text_field :city, placeholder: "例：浅草区", class: "form-control" %>
     </div>
 
     <div>
@@ -30,7 +32,7 @@
       <%= f.date_field :end_date %>
     </div>
 
-    <%= f.submit "登録", crass: "btn btn-outline-success mt-3" %>
+    <%= f.submit "登録", class: "btn btn-outline-info mt-3" %>
   <% end %>
 </div>
 

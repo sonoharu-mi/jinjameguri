@@ -7,7 +7,7 @@ class GroupUsersController < ApplicationController
     if group_user.save
       flash[:notice] = "参加申請を送りました"
     else
-      flash[:error] = "すでに申請済みです"
+      flash[:alert] = "すでに申請済みです"
     end
     redirect_to group_path(group)
   end

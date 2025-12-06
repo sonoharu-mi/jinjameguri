@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def block_guest_user
+    if current_user&.guest_user?
+      redirect_to root_path, alert: "ゲストユーザーはこの機能を利用できません。"
+    end
+  end
+
   private
   def admin_controller?
     self.class.module_parent_name == 'Admin'
