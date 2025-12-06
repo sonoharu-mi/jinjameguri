@@ -14,7 +14,7 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= image_tag user.get_profile_image(50,50) %></td>
-        <td><%= link_to '削除',admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？'} %></td>
+        <td><%= link_to '退会',admin_user_path(user), method: :delete, data: { confirm: '本当に退会しますか？'} %></td>
       </tr>
     <% end %>
   </tbody>
