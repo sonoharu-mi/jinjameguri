@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :authorize_owner, only: [:edit, :update, :destroy]
+  before_action :block_guest_user, only: [:show]
   
   def create
     @group = current_user.owned_groups.build(group_params)
@@ -10,8 +11,8 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to @group, notice: "グループを作成しました"
     else
-      @group = Group.all
-      flash.now[:error] = "グループの作成に失敗しました"
+      @groups = Group.all
+      flash.now[:alert] = "グループの作成に失敗しました"
       render :index
     end
   end
@@ -33,7 +34,7 @@ class GroupsController < ApplicationController
       flash[:notice] = "グループの編集に成功しました。"
       redirect_to @group
     else
-      flash[:error] = "グループの編集に失敗しました"
+      flash[:alert] = "グループの編集に失敗しました"
       render :edit
     end
   end

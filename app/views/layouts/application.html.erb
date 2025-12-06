@@ -7,7 +7,8 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/5c9065dcd4.js" crossorigin="anonymous"></script>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,9 +42,11 @@
                       <% end %>
                     </div>
                     <div class="dropdown-item">
-                      <%= link_to new_post_path, class: "nav-link text-info", data: {turbolinks: "false"} do %>
-                        <i class="fa-solid fa-file-pen"></i>
-                        新しい記を綴る
+                      <% unless current_user&.guest_user? %>
+                        <%= link_to new_post_path, class: "nav-link text-info", data: {turbolinks: "false"} do %>
+                          <i class="fa-solid fa-file-pen"></i>
+                          新しい記を綴る
+                        <% end %>
                       <% end %>
                     </div>
                     <div class="dropdown-item">
@@ -91,7 +94,7 @@
     <main>
       <div class="container-md">
         <% flash.each do |message_type, message| %>
-          <div class="flash_message <%= message_type %> "><%= message %></div>
+          <div class="flash-message <%= message_type %> "><%= message %></div>
         <% end %>
         <%= yield %>
       </div>

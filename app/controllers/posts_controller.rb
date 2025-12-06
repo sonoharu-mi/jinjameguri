@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :is_matcing_login_user, only: [:edit, :update]
+  before_action :block_guest_user, only: [:new, :create, :edit, :update]
   
   def new
     @post = Post.new
@@ -20,7 +21,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post.id)
     else
       @user = current_user.id
-      flash[:error] = "投稿に失敗しました"
+      flash[:alert] = "投稿に失敗しました"
       render :new
     end
   end
@@ -62,7 +63,7 @@ class PostsController < ApplicationController
       flash[:notice] = "編集に成功しました。"
       redirect_to post_path(@post.id)
     else
-      flash[:error] = "編集に失敗しました"
+      flash[:alert] = "編集に失敗しました"
       render :edit
     end
   end
