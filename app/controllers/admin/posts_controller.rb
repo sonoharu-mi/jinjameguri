@@ -1,4 +1,5 @@
 class Admin::PostsController < ApplicationController
+  layout "admin"
   before_action :authenticate_admin!
   
   def index
@@ -8,6 +9,6 @@ class Admin::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to admin_posts_path, notice: 'ユーザーを退会させました'
+    redirect_to admin_posts_path, notice: '投稿を削除しました'
   end
 end

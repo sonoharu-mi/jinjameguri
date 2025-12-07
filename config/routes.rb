@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :destroy]
     resources :post_comments, only: [:index, :destroy]
     resources :groups, only: [:index, :destroy]
+    resources :calendars, only: [:index, :destroy]
   end
 
   root to: "homes#top"

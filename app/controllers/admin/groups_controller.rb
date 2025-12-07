@@ -1,4 +1,5 @@
 class Admin::GroupsController < ApplicationController
+  layout "admin"
   before_action :authenticate_admin!
 
   def index
@@ -8,6 +9,6 @@ class Admin::GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
     @group.destroy
-    redirect_to admin_groups_path, notice: 'ユーザーを退会させました'
+    redirect_to admin_groups_path, notice: 'グループを削除しました'
   end
 end
