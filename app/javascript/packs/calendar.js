@@ -18,6 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
           calendar.changeView('dayGridMonth');
       }
     },
+
+    eventClick: function(info) {
+      if (!info.event.extendedProps.editable) {
+        alert("自分の投稿のみ削除できます");
+        return;
+      }
+
+      if (!confirm("この行事を削除しますか？")) {
+        return;
+      }
+    
+      fetch(`/calendars/${info.event.id}`, {
+        method: "DELETE",
+        headers: {
+          "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+        }
+      }).then(() => {
+        info.event.remove(); // 画面からも削除
+      });
+    },
   });
 
   calendar.render();

@@ -1,41 +1,42 @@
 <div class="row">
-  <h1>季節の行事</h1>
+  <h1 class="mt-3 mb-3">季節の行事</h1>
 </div>
 <div class="row">
-  <br>
-  <p>神社にまつわる行事を共有するカレンダーです</p>
+  <p class="mb-3">神社にまつわる行事を共有するカレンダーです</p>
 </div>
-<div class="row">
-  <%= form_with model: @calendar, local: true do |f| %>
-    <div>
-      <%= f.label :event, "行事名" %>
-      <%= f.text_field :event, placeholder: "例：〇〇祭", class: "form-control" %>
-    </div>
+<div class="row pl-3">
+  <div class="col-5">
+    <%= form_with model: @calendar_new, local: true do |f| %>
+      <div>
+        <%= f.label :event, "行事名" %>
+        <%= f.text_field :event, placeholder: "例：〇〇祭", class: "form-control" %>
+      </div>
 
-    <div>
-      <%= f.label :prefecture, "都道府県" %>
-      <%= f.text_field :prefecture, placeholder: "例：東京都", class: "form-control" %>
-    </div>
+      <div>
+        <%= f.label :prefecture, "都道府県" %>
+        <%= f.text_field :prefecture, placeholder: "例：東京都", class: "form-control" %>
+      </div>
 
-    <div>
-      <%= f.label :city, "市区町村" %>
-      <%= f.text_field :city, placeholder: "例：浅草区", class: "form-control" %>
-    </div>
+      <div>
+        <%= f.label :city, "市区町村" %>
+        <%= f.text_field :city, placeholder: "例：浅草区", class: "form-control" %>
+      </div>
 
-    <div>
-      <%= f.label :start_date, "開始日" %>
-      <%= f.date_field :start_date %>
-    </div>
+      <div>
+        <%= f.label :start_date, "開始日" %>
+        <%= f.date_field :start_date, class: "form-control" %>
+      </div>
 
-    <div>
-      <%= f.label :end_date, "終了日" %>
-      <%= f.date_field :end_date %>
-    </div>
+      <div>
+        <%= f.label :end_date, "終了日" %>
+        <%= f.date_field :end_date, class: "form-control" %>
+      </div>
 
-    <%= f.submit "登録", class: "btn btn-outline-info mt-3" %>
-  <% end %>
+      <%= f.submit "登録", class: "btn btn-outline-info mt-5" %>
+    <% end %>
+  </div>
 </div>
 
-<div id="calendar"></div>
+<div class="mt-5" id="calendar"></div>
 
 <%= javascript_pack_tag 'calendar', 'data-turbolinks-track': 'reload' %>
