@@ -1,8 +1,8 @@
 <h2>投稿一覧</h2>
-<table class="table table-hover">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>名前</th>
+      <th>神社名</th>
       <th>メールアドレス</th>
       <th></th>
       <th></th>
@@ -13,13 +13,19 @@
     <tr>
       <td><%= post.shirine_name %></td>
       <td><%= post.address %></td>
-      <td class="text-wrap" style="max-width: 200px; word-break: break-word;"><%= post.body %></td>
+      
       <td><%= image_tag post.get_image(100,100) %></td>
-      <td><%= link_to '削除',admin_post_path(post), method: :delete, data: { confirm: '本当に削除しますか？'} %></td>
+      <td><%= link_to '削除',admin_post_path(post), method: :delete, data: { confirm: '本当に削除しますか？'}, class: "btn btn-outline-danger btn-sm" %></td>
+    </tr>
+    <tr>
+      <td><%= post.parking_i18n %></td>
+      <td><%= post.shirine_stamp_i18n %></td>
+      <td class="text-wrap" style="max-width: 200px; word-break: break-word;"><%= post.body %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 
+
 <br>
-<%= link_to "戻る", admin_dashboards_path %> 
+<%= link_to "戻る", admin_dashboards_path, class: "text-secondary link link-opacity-50-hover mt-3" %> 

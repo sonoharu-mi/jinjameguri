@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <title>Admin - Jinjameguri</title>
-</head>
-<body>
-  <% if admin_signed_in? %>
-    <div class="text-right">
-      <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
-    </div>
-  <% end %>
-  <%= yield %>
-</body>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/5c9065dcd4.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>Admin - Jinjameguri</title>
+  </head>
+  <body>
+    <head>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><span><i class="fa-solid fa-torii-gate"></i> 巡んじゃ</span></a>
+          <% if admin_signed_in? %>
+            <div class="nav-item">
+              <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "nav-link text-light" %>
+            </div>
+          <% end %>
+        </div>
+      </nav>
+    </head>
+    <main>
+      
+      <%= yield %>
+      
+    </main>
+  </body>
 </html>
