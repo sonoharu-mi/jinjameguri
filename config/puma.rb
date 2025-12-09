@@ -40,9 +40,13 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 # preload_app!
 
 # Allow puma to be restarted by `rails restart` command.
+#app_dir = File.expand_path("../..", __FILE__)
 plugin :tmp_restart
 
+#bind "unix://#{app_dir}/tmp/sockets/puma.sock"
 bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
+
+
 rails_root = Dir.pwd
 # 本番環境のみデーモン起動
 if Rails.env.production?
