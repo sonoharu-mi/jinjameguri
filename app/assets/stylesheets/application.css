@@ -16,28 +16,3 @@
 
 
 
-#map {
-  width: 100%;
-  height: calc(100vh - 88px - 179px);
-}
-
-h1, h2, h3, h4, h5, nav, p {
-  font-family: "Sawarabi Mincho", sans-serif;
-}
-
-.flash-message {
-  border-radius: 5px;
-  padding: 16px 24px;
-  margin: 10px 0px;
-}
-
-.flash-message.notice {
-  background-color: #33ffcc;
-  color: #000000;
-}
-
-.flash-message.alert {
-  background-color: #ff9999;
-  color: #ffffff;
-}
-
