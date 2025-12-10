@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     mapTypeControl: false
   });
 
+  let items = [];
 
   try {
     const response = await fetch("/posts.json");
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Error fetching or processing post images:', error);
     return;
   }
+  
   items.forEach( item => {
     try {
       const latitude = item.latitude;
