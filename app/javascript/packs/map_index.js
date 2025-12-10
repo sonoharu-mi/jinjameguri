@@ -25,8 +25,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const {data: { items } } = await response.json();
     if (!Array.isArray(items)) throw new Error("Items is not an array");
-
-    items.forEach( item => {
+  } catch (error) {
+    console.error('Error fetching or processing post images:', error);
+    return;
+  }
+  items.forEach( item => {
+    try {
       const latitude = item.latitude;
       const longitude = item.longitude;
       const shirineName = item.shirine_name;
@@ -74,8 +78,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           map,
         })
       });
-    });
-  } catch (error) {
-    console.error('Error fetching or processing post images:', error);
-  }
+
+    } catch (error) {
+      console.error('Error fetching or processing post images:', error);
+    }
+  });
+
 })
