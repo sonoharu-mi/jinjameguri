@@ -9,7 +9,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-tenge-sign"></i></span>
       </div>
-      <%= text_field_tag :zipcode, nil, class: "form-control", placeholder: "郵便番号", onChange: "jpostal()"%>
+      <%= text_field_tag :zipcode, nil, class: "form-control", placeholder: "郵便番号" %>
     </div>
     <div class="input-group mb-3 mt-4">
       <div class="input-group-prepend">
@@ -47,4 +47,4 @@
   </div>
 <% end %><br>
 
-
+<%= javascript_pack_tag "jpostal",  'data-turbolinks-track': 'reload' %>
