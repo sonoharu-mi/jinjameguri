@@ -5,5 +5,6 @@ function jpostal() {
       '#post_address': '%3%4%5'
     }
   });
-}
-$(document).on("turbolinks:load", jpostal);
+};
+// $(document).on("turbolinks:load", jpostal);
+document.addEventListener("DOMContentLoaded", jpostal);
