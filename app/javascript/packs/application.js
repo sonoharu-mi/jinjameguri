@@ -16,6 +16,7 @@ import "../stylesheets/application";
 //import "./map_index";
 //import "./map_form";
 import './calendar';
+import './jpostal'
 
 Rails.start()
 //Turbolinks.start()
