@@ -91,14 +91,37 @@
         </div>
       </nav>
     </header>
-    <main>
-      <div class="container-md">
+    <main class="md-auto">
+      <div class="container">
         <% flash.each do |message_type, message| %>
           <div class="flash-message <%= message_type %> "><%= message %></div>
         <% end %>
         <%= yield %>
       </div>
     </main>
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container text-center">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <p>神社好きのためのコミュニティサイト</p>
+            
+          </div>
+          <div class="col-md-8">
+            <ul class="p-0 list-unstyled">
+              <li>
+                <a title="巡んじゃ" class="text-white-50" href="/"><span class="text-white-50"><i class="fa-solid fa-torii-gate"></i> 巡んじゃ</span></a>
+              </li>
+              <li>
+                <a href="" title="ご案内" class="text-white-50">概要欄</a>
+              </li>
+              <li>
+                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   <script src="https://cdn.jsdelivr.net/npm/jquery-jpostal-ja@2.14.45/jquery.jpostal.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['Maps_API_Key'] %>" async defer></script>
   </body>
