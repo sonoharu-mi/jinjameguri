@@ -18,15 +18,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     mapTypeControl: false
   });
 
+  let post_items = [];
 
   try {
+    
     const response = await fetch("/posts.json");
     if (!response.ok) throw new Error('Network response was not ok');
 
     const {data: { items } } = await response.json();
+    console.log(items);
+    post_items = items
     if (!Array.isArray(items)) throw new Error("Items is not an array");
-
-    items.forEach( item => {
+  } catch (error) {
+    console.error('Error fetching or processing post images:', error);
+    return;
+  }
+  console.log(post_items);
+  post_items.forEach( item => {
+    try {
       const latitude = item.latitude;
       const longitude = item.longitude;
       const shirineName = item.shirine_name;
@@ -74,8 +83,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           map,
         })
       });
-    });
-  } catch (error) {
-    console.error('Error fetching or processing post images:', error);
-  }
+
+    } catch (error) {
+      console.error('Error fetching or processing post images:', error);
+    }
+  });
+
 })
