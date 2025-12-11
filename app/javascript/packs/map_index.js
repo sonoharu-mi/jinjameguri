@@ -18,20 +18,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     mapTypeControl: false
   });
 
-  let items = [];
+  let post_items = [];
 
   try {
+    
     const response = await fetch("/posts.json");
     if (!response.ok) throw new Error('Network response was not ok');
 
     const {data: { items } } = await response.json();
+    console.log(items);
+    post_items = items
     if (!Array.isArray(items)) throw new Error("Items is not an array");
   } catch (error) {
     console.error('Error fetching or processing post images:', error);
     return;
   }
-  
-  items.forEach( item => {
+  console.log(post_items);
+  post_items.forEach( item => {
     try {
       const latitude = item.latitude;
       const longitude = item.longitude;
