@@ -149,5 +149,64 @@ group2.image.attach(
 Like.find_or_create_by!(user: tanaka, post: post2)
 Like.find_or_create_by!(user: tanaka, post: post3)
 
+calendar_data = [
+  {
+    event: "大祓い",
+    prefecture: "山口県",
+    city: "宇部市",
+    start_date: Date.new(2025, 12, 31),
+    end_date: Date.new(2025, 12, 31)
+  },
+  {
+    event: "初詣",
+    prefecture: "東京都",
+    city: "千代田区",
+    start_date: Date.new(2026, 1, 1),
+    end_date: Date.new(2026, 1, 3)
+  },
+  {
+    event: "初天神",
+    prefecture: "東京都",
+    city: "千代田区",
+    start_date: Date.new(2026, 1, 25),
+    end_date: Date.new(2026, 1, 25)
+  },
+  {
+    event: "節分祭",
+    prefecture: "京都府",
+    city: "京都市",
+    start_date: Date.new(2026, 2, 3),
+    end_date: Date.new(2026, 2, 3)
+  },
+  {
+    event: "桜祭り",
+    prefecture: "大阪府",
+    city: "大阪市",
+    start_date: Date.new(2026, 4, 1),
+    end_date: Date.new(2026, 4, 10)
+  },
+  {
+    event: "夏越の祓",
+    prefecture: "広島県",
+    city: "広島市",
+    start_date: Date.new(2026, 6, 30),
+    end_date: Date.new(2026, 6, 30)
+  },
+  {
+    event: "七五三",
+    prefecture: "北海道",
+    city: "札幌市",
+    start_date: Date.new(2026, 11, 15),
+    end_date: Date.new(2026, 11, 15)
+  }
+]
+
+calendar_data.each do |data|
+  Calendar.find_or_create_by!(user_id: tanaka.id, event: data[:event], start_date: data[:start_date]) do |c|
+    c.prefecture = data[:prefecture]
+    c.city = data[:city]
+    c.end_date = data[:end_date]
+  end
+end
 
 puts "seedの実行が完了しました"
