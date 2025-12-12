@@ -26,8 +26,8 @@
     <% @group.group_users.pending.each do |member| %>
       <p>
         <%= member.user.name %>
-        <%= button_to "承認", approve_group_user_path(member), method: :patch, class: "btn btn-success btn-sm" %>
-        <%= button_to "拒否", reject_group_user_path(member), method: :patch, class: "btn btn-danger btn-denger btn-sm" %>
+        <%= button_to "承認", approve_group_group_user_path(@group,member), method: :patch, class: "btn btn-success btn-sm" %>
+        <%= button_to "拒否", reject_group_group_user_path(@group,member), method: :patch, class: "btn btn-danger btn-denger btn-sm" %>
       </p>
     <% end %>
   <% else %>
