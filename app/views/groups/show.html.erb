@@ -46,7 +46,8 @@
       <% end %>
     </ul>
     <% if @group.owner != current_user && @group.users.include?(current_user) %>
-      <%= button_to "グループを退会する", leave_group_group_user_path(@group.group_users.find_by(user: current_user)), method: :delete, class: "btn btn-warning mt-3" %>
+      <% group_user = @group.group_users.find_by(user: current_user) %>
+      <%= button_to "グループを退会する", leave_group_group_user_path(@group, group_user), method: :delete, class: "btn btn-warning mt-3" %>
     <% end %>
   </div>
   
