@@ -59,8 +59,12 @@
 
 <div id="liked-posts" class="tab-content mt-3" style="display:none;">
   <table class="table">
-    <% @like_posts.each do |post| %>
-      <%= render post %>
+    <% if current_user&.guest_user? %>
+      <h5 class="bg-danger text-white mt-3">ゲストユーザーはご利用できません</h5>
+    <% else %>
+      <% @like_posts.each do |post| %>
+        <%= render post %>
+      <% end %>
     <% end %>
   </table>
 </div>
