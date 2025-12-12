@@ -27,5 +27,15 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 ​
+## 機能一覧
+- 検索機能
+- Google Maps API を使用した神社投稿の地図表示
+- グループ作成 / 参加申請 / 承認 / 拒否 / 退会
+- いいね機能
+- コメント機能
+- 検索機能
+- タグ機能
+- カレンダー機能
+
 ## 使用素材
 写真素材：https://unsplash.com/ja, https://www.ac-illust.com/
