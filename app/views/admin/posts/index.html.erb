@@ -3,9 +3,9 @@
   <thead>
     <tr>
       <th>神社名</th>
-      <th>メールアドレス</th>
       <th></th>
       <th></th>
+      <th>ユーザー名</th>
     </tr>
   </thead>
   <tbody>
@@ -15,12 +15,13 @@
       <td><%= post.address %></td>
       
       <td><%= image_tag post.get_image(100,100) %></td>
-      <td><%= link_to '削除',admin_post_path(post), method: :delete, data: { confirm: '本当に削除しますか？'}, class: "btn btn-outline-danger btn-sm" %></td>
+      <td><%= post.user.name %></td>
     </tr>
     <tr>
       <td><%= post.parking_i18n %></td>
       <td><%= post.shirine_stamp_i18n %></td>
       <td class="text-wrap" style="max-width: 200px; word-break: break-word;"><%= post.body %></td>
+      <td><%= link_to '削除',admin_post_path(post), method: :delete, data: { confirm: '本当に削除しますか？'}, class: "btn btn-outline-danger btn-sm" %></td>
     </tr>
     <% end %>
   </tbody>
