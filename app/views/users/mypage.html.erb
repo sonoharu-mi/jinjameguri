@@ -5,12 +5,12 @@
 <table class="table">
   <thead>
     <tr>
-    <th>
-    <%= link_to edit_user_path(@mypage) do %>
-      <%= image_tag @mypage.get_profile_image(100,100) %>
-    <% end %>
-    </th>
-    <th><h3><%= @mypage.name %></h3></th>
+      <th>
+        <%= link_to edit_user_path(@mypage) do %>
+          <%= image_tag @mypage.get_profile_image(100,100) %>
+        <% end %>
+      </th>
+      <th><h3><%= @mypage.name %></h3></th>
     </tr>
     <tr>
       <th></th>
@@ -27,13 +27,14 @@
       プロフィールを編集する
     <% end %>
   </div>
+
+  <div class="row">
+    <%= link_to new_post_path(@post_new), class: "btn btn-outline-primary btn-block mt-2" do %>
+      <i class="fa-solid fa-file-pen"></i>
+      新しい記を綴る
+    <% end %>
+  </div>
 <% end %>
-<div class="row">
-  <%= link_to new_post_path(@post_new), class: "btn btn-outline-primary btn-block mt-2" do %>
-    <i class="fa-solid fa-file-pen"></i>
-    新しい記を綴る
-  <% end %>
-</div>
 
 
 <div class="row mt-5">
@@ -49,8 +50,12 @@
 
 <div id="my-posts" class="tab-content active mt-3">
   <div class="row d-flex justify-content-center">
-    <h3 class="mt-5">参拝記録</h3>
-    <%= render "searches/form" %>
+    <h3 class="mt-5 ">参拝記録</h3>
+    <% if current_user&.guest_user? %>
+      <h5 class="mt-3">ゲストユーザーはご利用できません</h5>
+    <% else %>
+      <%= render "searches/form" %>
+    <% end %>
     <table class="table">
       <%= render @posts %>
     </table>
@@ -60,7 +65,7 @@
 <div id="liked-posts" class="tab-content mt-3" style="display:none;">
   <table class="table">
     <% if current_user&.guest_user? %>
-      <h5 class="bg-danger text-white mt-3">ゲストユーザーはご利用できません</h5>
+      <h5 class="mt-5">ゲストユーザーはご利用できません</h5>
     <% else %>
       <% @like_posts.each do |post| %>
         <%= render post %>
@@ -69,7 +74,7 @@
   </table>
 </div>
 
-<div class="row">
+<div class="row mt-5">
   <%= link_to "一覧へ戻る", posts_path, class: "text-secondary link-underline-opacity-100-hover mt-3" %>
 </div>
 
