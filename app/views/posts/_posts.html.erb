@@ -16,7 +16,14 @@
       </th>
     </tr>
     <tr>
-      <th><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></th>
+      <th>
+        <%= link_to post_path(post.id) do %>
+          <span>
+            <i class="fa-solid fa-comment"></i>
+            <%= post.post_comments.count %>
+          </span>
+        <% end %>
+      </th>
       <th><%= render "likes/like", post: post %></th>
     </tr>
     <tr>

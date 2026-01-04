@@ -8,7 +8,7 @@
 <div class="row pl-3">
   <div class="col-5">
     <% if current_user&.guest_user? %>
-      <h5 class="bg-danger text-white">ゲストユーザーは行事の投稿ができません</h5>
+      <h5 class="">ゲストユーザーは行事の投稿ができません</h5>
     <% else %>
       <%= form_with model: @calendar_new, local: true do |f| %>
         <div>
@@ -42,6 +42,6 @@
   </div>
 </div>
 
-<div class="mt-5" id="calendar"></div>
+<div class="mt-5 mb-2" id="calendar"></div>
 
 <%= javascript_pack_tag 'calendar', 'data-turbolinks-track': 'reload' %>
