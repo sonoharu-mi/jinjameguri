@@ -12,6 +12,7 @@
         <h1>投稿一覧</h1>
         <%= render "searches/form" %>
         <br>
+        <%= paginate @posts %>
       </div>
     </div>
     <div class="text-truncate">
@@ -22,4 +23,3 @@
 
 <%= javascript_pack_tag 'map_index', 'data-turbolinks-track': 'reload' %>
 
-  
