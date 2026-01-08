@@ -8,7 +8,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <title>Admin - Jinjameguri</title>
   </head>
-  <body>
+  <body class="d-flex flex-column vh-100">
     <head>
       <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
@@ -21,10 +21,11 @@
         </div>
       </nav>
     </head>
-    <main>
-      
+    <main class="md-auto flex-grow-1">
       <%= yield %>
-      
     </main>
+    <footer class="bg-dark text-white pt-3 pb-4">
+      <p class="text-center">©︎ 2025 jinjameguri</p>
+    </footer>
   </body>
 </html>

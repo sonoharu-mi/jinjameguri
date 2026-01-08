@@ -14,11 +14,15 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= image_tag user.get_profile_image(50,50) %></td>
-        <td><%= link_to '退会',admin_user_path(user), method: :delete, data: { confirm: '本当に退会しますか？'}, class: "btn btn-outline-danger btn-sm" %></td>
+        <td>
+          <% unless user.email == "guest@example.com" %>
+            <%= link_to '退会',admin_user_path(user), method: :delete, data: { confirm: '本当に退会しますか？'}, class: "btn btn-outline-danger btn-sm" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @users %>
 <br>
 <%= link_to "戻る", admin_dashboards_path, class: "text-secondary link-underline-opacity-100-hover mt-3" %> 

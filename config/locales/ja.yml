@@ -69,3 +69,10 @@ ja:
       template:
         body: 次の項目を確認してください
         header: "%{model}に%{count}個のエラーが発生しました"
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
