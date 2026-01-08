@@ -5,7 +5,7 @@
       <th>神社名</th>
       <th></th>
       <th></th>
-      <th>ユーザー名</th>
+      <th class="text-nowrap">ユーザー名</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +27,6 @@
   </tbody>
 </table>
 
-
+<%= paginate @posts %>
 <br>
 <%= link_to "戻る", admin_dashboards_path, class: "text-secondary link link-opacity-50-hover mt-3" %> 
