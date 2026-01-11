@@ -60,9 +60,9 @@ sizuku = User.find_or_create_by!(email: "sample9@test.com") do |user|
   user.password = "sizukudesu"
 end
 
-a = User.find_or_create_by!(email: "sample10@test.com") do |user|
-  user.name = "小春"
-  user.password = "koharudesu"
+yumeko = User.find_or_create_by!(email: "sample10@test.com") do |user|
+  user.name = "夢子"
+  user.password = "yumekodesu"
 end
 
 post1 = Post.find_or_create_by!(shirine_name: "別府八幡宮") do |post|
