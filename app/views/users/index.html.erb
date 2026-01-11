@@ -1,9 +1,12 @@
-<h2>参拝者一覧</h2>
+<h2 class="mt-4">参拝者一覧</h2>
+<div class="mb-3">
+  <%= render "searches/form" %>
+</div>
 
-<%= render "searches/form" %>
-
-
-    <%= render "users/users", users: @users %>
+<%= render "users/users", users: @users %>
+<div class="pagination-wrapper text-center mb-3">
+  <%= paginate @users %>
+</div>
 
 <div class="row">
   <%= link_to "一覧へ戻る", posts_path, class: "text-secondary link-underline-opacity-100-hover" %>

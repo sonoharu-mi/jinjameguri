@@ -48,12 +48,10 @@ main {
 .pagination a:hover {
   color: #b71c1c;
   background-color: #fdeff2;
-  border-bottom: 2px solid rgba(183, 28, 28, 0.5);
 }
 
 .pagination .current {
   color: #b71c1c;
   font-weight: bold;
-  border-bottom: 2px solid #b71c1c;
   pointer-events: none;
 }
