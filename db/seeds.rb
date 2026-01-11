@@ -45,6 +45,26 @@ koharu = User.find_or_create_by!(email: "sample6@test.com") do |user|
   user.password = "koharudesu"
 end
 
+asagi = User.find_or_create_by!(email: "sample7@test.com") do |user|
+  user.name = "あさぎ"
+  user.password = "asagidesu"
+end
+
+kaede = User.find_or_create_by!(email: "sample8@test.com") do |user|
+  user.name = "楓"
+  user.password = "kaededesu"
+end
+
+sizuku = User.find_or_create_by!(email: "sample9@test.com") do |user|
+  user.name = "雫"
+  user.password = "sizukudesu"
+end
+
+a = User.find_or_create_by!(email: "sample10@test.com") do |user|
+  user.name = "小春"
+  user.password = "koharudesu"
+end
+
 post1 = Post.find_or_create_by!(shirine_name: "別府八幡宮") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/八幡宮.jpg"), filename:"八幡宮.jpg")
   post.address = "山口県山陽小野田市有帆１３７７−２"
