@@ -3,7 +3,7 @@ class Admin::CalendarsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @calendars = Calendar.all.order(created_at: :desc)
+    @calendars = Calendar.all.order(created_at: :desc).page(params[:page])
   end
 
   def destroy

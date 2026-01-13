@@ -147,6 +147,42 @@ post_comment2 = PostComment.find_or_create_by!(user: koharu, post: post1) do |co
   comment.comment = "茅の輪初めてみた"
 end
 
+post_comment3 = PostComment.find_or_create_by!(user: hinata, post: post1) do |comment|
+  comment.comment = "すごく良いところですね😄\n"
+end
+
+post_comment4 = PostComment.find_or_create_by!(user: honoka, post: post5) do |comment|
+  comment.comment = "立派な随神門です！"
+end
+
+post_comment5 = PostComment.find_or_create_by!(user: miyabi, post: post6) do |comment|
+  comment.comment = "花手水が綺麗"
+end
+
+post_comment6 = PostComment.find_or_create_by!(user: asagi, post: post6) do |comment|
+  comment.comment = "定期的に参拝しますが、とても居心地が良いです"
+end
+
+post_comment7 = PostComment.find_or_create_by!(user: kaede, post: post4) do |comment|
+  comment.comment = "他宗教関係なく日本人の戦没者を祀る神社です"
+end
+
+post_comment8 = PostComment.find_or_create_by!(user: sizuku, post: post3) do |comment|
+  comment.comment = "一面が赤色に染まって異世界感がすごいです"
+end
+
+post_comment9 = PostComment.find_or_create_by!(user: sizuku, post: post2) do |comment|
+  comment.comment = "とても距離が長くて大変ですが千本鳥居を向けた先に日本海が広がっています。"
+end
+
+post_comment10 = PostComment.find_or_create_by!(user: yumeko, post: post5) do |comment|
+  comment.comment = "日本三大怨霊の一人が祀られています"
+end
+
+post_comment11 = PostComment.find_or_create_by!(user: yamada, post: post6) do |comment|
+  comment.comment = "１週間か半月に１回花手水が変わります"
+end
+
 group = Group.find_or_create_by!(name: "推し神社を語ろうの会") do |group|
   group.introduction = "今まで参拝した神社の中で特にお気に入りの神社を教えてください。"
   group.owner = tanaka
@@ -204,6 +240,20 @@ calendar_data = [
     city: "大阪市",
     start_date: Date.new(2026, 4, 1),
     end_date: Date.new(2026, 4, 10)
+  },
+  {
+    event: "崇敬会春まつり",
+    prefecture: "東京都",
+    city: "千代田区",
+    start_date: Date.new(2026, 4, 1),
+    end_date: Date.new(2026, 4, 5)
+  },
+  {
+    event: "七夕祭",
+    prefecture: "東京都",
+    city: "千代田区",
+    start_date: Date.new(2026, 7, 7),
+    end_date: Date.new(2026, 7, 7)
   },
   {
     event: "夏越の祓",
