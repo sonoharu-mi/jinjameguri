@@ -17,6 +17,7 @@ import "../stylesheets/application";
 //import "./map_form";
 // import './calendar';
 
+
 Rails.start()
 //Turbolinks.start()
 ActiveStorage.start()
