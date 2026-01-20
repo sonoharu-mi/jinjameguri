@@ -1,1 +1,3 @@
-// import jquery
+$(function() {
+  $('.box1').slideDown();
+});

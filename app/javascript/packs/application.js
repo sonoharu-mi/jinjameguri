@@ -16,7 +16,7 @@ import "../stylesheets/application";
 //import "./map_index";
 //import "./map_form";
 // import './calendar';
-
+// import '/jquery_app.js'
 
 Rails.start()
 //Turbolinks.start()
