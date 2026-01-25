@@ -24,7 +24,11 @@
           </span>
         <% end %>
       </th>
-      <th><%= render "likes/like", post: post %></th>
+      <th>
+        <div class="like-area-<%= post.id %>">
+          <%= render "likes/like", post: post %>
+        </div>
+      </th>
     </tr>
     <tr>
       <th>
